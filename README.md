@@ -64,7 +64,7 @@ Time Tracking
     * _Mutations_:
       * 
       
-## UI
+## UI (template)
 
 1. Routing + Screen Components
   * /coaches                      -- coachesList
