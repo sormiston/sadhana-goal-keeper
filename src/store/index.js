@@ -8,7 +8,15 @@ const store = createStore({
     }
   },
   mutations: {},
-  actions: {},
+  actions: {
+    // async postNewGoal(context, payload) {
+    //   try {
+        
+    //   } catch (err) {
+    //     console.error(err.message)
+    //   }
+    // }
+  },
   getters: {
     currentTime(state) {
       return state.timeLoaded;
