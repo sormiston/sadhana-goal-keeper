@@ -27,15 +27,17 @@ export default {
     async postNewSteps(context, payload) {
       const userId = context.rootGetters.userId;
       const steps = buildSteps(payload);
-      try {
-        const response = await axios.post(
-          `${userId}/steps.json`,
-          JSON.stringify(steps)
-        );
-        if (response.status < 200 || response.status >= 300)
-          throw new Error(response.status);
-      } catch (error) {
-        console.error(error.message);
+      for (const item of steps) {
+        try {
+          const response = await axios.post(
+            `${userId}/steps.json`,
+            JSON.stringify(item)
+          );
+          if (response.status < 200 || response.status >= 300)
+            throw new Error(response.status);
+        } catch (error) {
+          console.error(error.message);
+        }
       }
     }
   }

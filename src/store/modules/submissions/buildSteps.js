@@ -37,6 +37,7 @@ export default function buildSteps(goal) {
         title: goal.title,
         dateTime: dayForMonthlyCalc,
         timeSpecific: !goal.noTime,
+        durational: !goal.noDuration,
         hoursDuration: goal.durationHours || null,
         minutesDuration: goal.durationMinutes || null,
         status: "not-done",

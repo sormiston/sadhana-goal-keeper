@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import submissionsModule from "./modules/submissions/index.js";
 import goalsModule from "./modules/goals/index.js"
+import stepsModule from "./modules/steps/index.js"
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
@@ -19,12 +20,14 @@ const store = createStore({
       return state.userId
     },
     currentTime(state) {
+      // returns a daysjs object
       return state.timeLoaded;
     }
   },
   modules: {
     submissions: submissionsModule,
-    goals: goalsModule
+    goals: goalsModule,
+    steps: stepsModule
   }
 });
 

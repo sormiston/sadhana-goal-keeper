@@ -29,6 +29,7 @@ export default {
       this.goalsLoading = true
       await this.$store.dispatch('goals/getUserGoals')
       this.goalsLoading = false
+      console.log(this.$store.getters['goals/goals'][0]);
     }
   },
   created() {

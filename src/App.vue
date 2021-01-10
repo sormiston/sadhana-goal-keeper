@@ -1,7 +1,8 @@
 <template>
   <div id="nav">
-    <router-link to="/">Index</router-link> |
-    <router-link to="/addGoal">Input</router-link>
+    <router-link to="/">Goals Index</router-link> |
+    <router-link to="/addGoal">Input</router-link> | 
+    <router-link to="/steps">Steps Index</router-link>
   </div>
   <router-view />
 </template>
