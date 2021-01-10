@@ -18,13 +18,16 @@ Core CRUD and query functionality of TODO items
 Time Tracking
 | Feature  | Implementation  | MSCW |
 |---|---|----|
-|I can track the number of days/hours/minutes/seconds I have worked on a task.| task items will have a duration property -- if you do the task, the duration is fed to analytics | M
+|I can track the number of days/hours/minutes/seconds I have worked on a task.| task items will have a duration property -- if you do the task, value is added to associated goal's *time logged* key | M
 |I can view the amount of time (if at all) I’ve spent on any given task| see above | M
 |(Stretch) I can sort by the amount of time I’ve spent on a task| | 
 |(Stretch) I can start a timer that then automatically counts how long I’ve beeworking on a task. If I close the tab or logoff, the timer should not stopinstead, it should continue ticking down.| | C
 |(Stretch) I can give a task a amount of time to be completed|
 |(Stretch) I can see indication of taskes past their deadline|
 
+Dashboard
+| Feature  | Implementation  | MSCW |
+|---|---|----|
 
 ## Screens
 
@@ -39,6 +42,7 @@ Time Tracking
         * Title
         * Steps completed
         * Steps total
+        * Start time
         * Deadline 
         * Frequency
         * Descriptive body
