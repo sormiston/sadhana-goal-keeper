@@ -275,19 +275,25 @@ export default {
           .clone()
           .minute(parseInt(this.form.startTime.substring(3, 5)));
       }
-      const formData = { ...this.form };
+      let formData = { ...this.form };
+      formData.noTime = formData.startTime === null ? true : false;
+      formData.noDuration =
+        formData.durationHours === null && formData.durationMinutes === null
+          ? true
+          : false;
       delete formData.startTime;
 
       let deadline = dayjs(this.form.deadline);
       deadline = deadline.clone().hour(23);
       deadline = deadline.clone().minute(59);
-
-
-      this.$store.dispatch("submissions/postNewGoal", {
+    
+      formData = {
         ...formData,
-        startDate: startDate,
-        deadline: deadline
-      });
+        startDate,
+        deadline
+      };
+    
+      this.$store.dispatch("submissions/postNewGoal", formData);
     },
     toggleTooltip() {
       this.tooltip = !this.tooltip;

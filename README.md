@@ -42,21 +42,14 @@ Dashboard
         * Title
         * Hashtag 
         * Descriptive body
-        * Start time
+        * Start Date + Time obj
         * Step duration 
         * Frequency
         * Steps completed (updated when user completes a step)
         * Steps total (generated behind scenes)
         * Deadline 
-       
-        
-        
-        
         * Time logged (updated when user completes a step)
-        
-    * _Mutations_:
-      * 
-      
+       
    
 2. Steps
     * _State_: 
@@ -65,6 +58,8 @@ Dashboard
         * Associated Goal ID
         * Title
         * Date
+        * time 
+        * time-specific
         * Step Duration
         * Status
         * Hashtag
