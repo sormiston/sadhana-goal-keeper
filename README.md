@@ -29,9 +29,8 @@ Dashboard
 | Feature  | Implementation  | MSCW |
 |---|---|----|
 
-## Screens
-
-
+## Prototyping
+https://www.figma.com/file/CagjBx2DpD4xXivZsCNcPH/mintbean-goal-tracker?node-id=0%3A1
     
 ## Data Models
 
@@ -50,8 +49,7 @@ Dashboard
         * Step duration
         * Time logged
         
-    * _Mutations_:
-      * 
+
       
    
 2. Steps
@@ -65,8 +63,7 @@ Dashboard
         * Status
         * Hashtag
         * 
-    * _Mutations_:
-      * 
+
       
 ## UI (template)
 
