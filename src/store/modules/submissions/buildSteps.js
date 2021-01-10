@@ -41,7 +41,8 @@ export default function buildSteps(goal) {
         hoursDuration: goal.durationHours || null,
         minutesDuration: goal.durationMinutes || null,
         status: "not-done",
-        track: goal.track
+        track: goal.track,
+        description: goal.description
       };
       if (goal.cycleOnceMonthlyDay === dayOfWeek[dayForMonthlyCalc.day()]) {
         counter++;
@@ -67,7 +68,8 @@ export default function buildSteps(goal) {
       hoursDuration: goal.durationHours || null,
       minutesDuration: goal.durationMinutes || null,
       status: "not-done",
-      track: goal.track
+      track: goal.track,
+      description: goal.description
     };
     if (goal.cycle === "Daily") {
       steps.push(step);
