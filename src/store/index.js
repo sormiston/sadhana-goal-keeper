@@ -1,29 +1,27 @@
-import { createStore } from 'vuex';
-import dayjs from 'dayjs';
+import { createStore } from "vuex";
+import submissionsModule from "./modules/submissions/index.js";
+import dayjs from "dayjs";
 
 const store = createStore({
   state() {
     return {
-      timeLoaded: dayjs()
-    }
+      timeLoaded: dayjs(),
+      userId: 'x1'
+    };
   },
   mutations: {},
-  actions: {
-    // async postNewGoal(context, payload) {
-    //   try {
-        
-    //   } catch (err) {
-    //     console.error(err.message)
-    //   }
-    // }
-  },
+  actions: {},
   getters: {
+    userId(state) {
+      return state.userId
+    },
     currentTime(state) {
       return state.timeLoaded;
     }
   },
-  modules: {}
+  modules: {
+    submissions: submissionsModule
+  }
 });
 
-
-export default store
+export default store;

@@ -59,6 +59,7 @@
       <input
         type="number"
         id="hours"
+        min="0"
         max="8"
         :disabled="form.noDuration"
         v-model.number="form.durationHours"
@@ -67,6 +68,7 @@
       <input
         type="number"
         id="minutes"
+        min="0"
         max="60"
         step="15"
         :disabled="form.noDuration"
@@ -246,7 +248,7 @@ export default {
   },
   methods: {
     logForm() {
-      console.log(this.form)
+      this.$store.dispatch('submissions/postNewGoal', this.form)
     },
     toggleTooltip() {
       this.tooltip = !this.tooltip;
