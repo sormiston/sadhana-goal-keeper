@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import submissionsModule from "./modules/submissions/index.js";
+import goalsModule from "./modules/goals/index.js"
 import dayjs from "dayjs";
 
 const store = createStore({
@@ -20,7 +21,8 @@ const store = createStore({
     }
   },
   modules: {
-    submissions: submissionsModule
+    submissions: submissionsModule,
+    goals: goalsModule
   }
 });
 

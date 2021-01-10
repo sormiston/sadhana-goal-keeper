@@ -13,8 +13,8 @@ export default {
         );
         if (response.status < 200 || response.status >= 300)
           throw new Error(response.status);
-      } catch (err) {
-        console.error(err.message);
+      } catch (error) {
+        console.error(error.message);
       }
     }
   }

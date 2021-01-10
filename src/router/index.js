@@ -5,6 +5,10 @@ import NewGoalForm from "../components/NewGoalForm.vue";
 const routes = [
   {
     path: "/",
+    redirect: "/goals"
+  },
+  {
+    path: "/goals",
     name: "GoalsIndex",
     component: GoalsIndex
   },
