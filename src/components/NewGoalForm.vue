@@ -1,14 +1,21 @@
 <template>
   <form @submit.prevent="logForm">
     <div class="form-control">
-      <input id="title" type="text" placeholder="Goal" v-model.trim="form.title" />
+      <input
+        id="title"
+        type="text"
+        placeholder="Goal"
+        v-model.trim="form.title"
+      />
     </div>
     <div class="form-control">
       <h3>Track</h3>
-      <input type="radio" id="health" value="Health" v-model="form.track" /><label
-        for="health"
-        >Health</label
-      >
+      <input
+        type="radio"
+        id="health"
+        value="Health"
+        v-model="form.track"
+      /><label for="health">Health</label>
       <input
         type="radio"
         id="learning"
@@ -47,7 +54,14 @@
     </div>
     <div class="form-control">
       <h3>Time</h3>
-      <input type="time" id="time" min="00:00" max="24:00" :disabled="form.noTime" v-model="form.startTime"/>
+      <input
+        type="time"
+        id="time"
+        min="00:00"
+        max="24:00"
+        :disabled="form.noTime"
+        v-model="form.startTime"
+      />
       <input type="checkbox" v-model="form.noTime" id="no-time" />
       <label for="no-time">No set time</label>
     </div>
@@ -211,6 +225,10 @@
 </template>
 
 <script>
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+dayjs.extend(utc);
+
 export default {
   data() {
     return {
@@ -229,8 +247,8 @@ export default {
         cycleOnceMonthlyDay: "",
         cycleDayOfMonth: "First",
         deadline: this.$store.getters.currentTime
-        .add(1, "month")
-        .format("YYYY-MM-DD")
+          .add(1, "month")
+          .format("YYYY-MM-DD")
       },
 
       tooltip: false
@@ -248,7 +266,28 @@ export default {
   },
   methods: {
     logForm() {
-      this.$store.dispatch('submissions/postNewGoal', this.form)
+      let startDate = dayjs(this.form.startDate);
+      if (this.form.startTime) {
+        startDate = startDate
+          .clone()
+          .hour(parseInt(this.form.startTime.substring(0, 2)));
+        startDate = startDate
+          .clone()
+          .minute(parseInt(this.form.startTime.substring(3, 5)));
+      }
+      const formData = { ...this.form };
+      delete formData.startTime;
+
+      let deadline = dayjs(this.form.deadline);
+      deadline = deadline.clone().hour(23);
+      deadline = deadline.clone().minute(59);
+
+
+      this.$store.dispatch("submissions/postNewGoal", {
+        ...formData,
+        startDate: startDate,
+        deadline: deadline
+      });
     },
     toggleTooltip() {
       this.tooltip = !this.tooltip;
