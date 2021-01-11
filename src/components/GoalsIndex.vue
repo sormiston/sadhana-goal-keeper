@@ -12,7 +12,7 @@
   :totalSteps="goal.totalSteps"
   :stepsCompleted="goal.stepsComplete"
   :startDate="goal.startDate"
-  :endDate="goal.endDate"
+  :endDate="goal.deadline"
 >
 </goal-card>
 </template>

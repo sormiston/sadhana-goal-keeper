@@ -46,7 +46,7 @@ export default {
 }
 
 .flex-bottom {
-  /* background-color: red;  */
+  margin-top: 10px; 
   height: 5px;
 }
 

@@ -6,32 +6,34 @@
     <template #icons>
         <div>
             <div v-if="!this.noDuration">
-                <span>@</span>
+                <span>@ </span>
                 <span v-if="this.durationHours!=null && this.durationHours>0">{{this.durationHours}} hours </span>
                 <span v-if="this.durationMinutes!=null && this.durationMinutes>0">{{ this.durationMinutes }} minutes</span>
             </div>
             <div>
-                <span>@</span>
-                <span>3 months</span>
+                <span>@ </span>
+                <span v-if="goalTotalMonths>0">{{goalTotalMonths}} months</span>
+                <span v-if="goalTotalMonths==0">{{goalTotalDays}} days</span>
             </div>
             <div>
-                <span>@</span>
+                <span>@ </span>
                 <span>Monday, Wednesday, Friday</span>
             </div>
             <div>
-                <span>@</span>
+                <span>@ </span>
                 <span>{{ this.track }}</span>
             </div>
         </div>
     </template>
     <template #progressBar>
-        <progress-bar :track="this.track" :totalSteps="2" :stepsComplete="1"></progress-bar>
+        <progress-bar :track="this.track" :totalSteps="this.totalSteps" :stepsComplete="this.stepsCompleted"></progress-bar>
     </template>
 </base-card>
 </template>
 
 <script>
 import ProgressBar from './ProgressBar.vue';
+import dayjs from "dayjs";
 // import MenuIcon from 'vue-material-design-icons/Menu.vue';
 export default {
     components: {
@@ -52,7 +54,16 @@ export default {
         "endDate",
     ],
     computed: {
-
+        goalTotalMonths() {
+            const startDate = dayjs(String(this.startDate));
+            const endDate = dayjs(String(this.endDate));
+            return endDate.diff(startDate, 'month');
+        },
+        goalTotalDays() {
+            const startDate = dayjs(String(this.startDate));
+            const endDate = dayjs(String(this.endDate));
+            return endDate.diff(startDate, 'day');
+        }
     }
 };
 </script>
