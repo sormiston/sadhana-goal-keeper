@@ -8,12 +8,12 @@
       <div v-if="$slots.icons" class="icons">
         <slot name="icons"></slot>
       </div>
+      <div v-if="$slots.progressBar" class="flex-bottom">
+        <slot name="progressBar"></slot>
+      </div>
     </div>
     <div v-if="$slots.markDone" class="flex-right">
       <slot name="markDone"></slot>
-    </div>
-    <div v-if="$slots.showProgressBar">
-      <slot name="progressBar"></slot>
     </div>
   </div>
 </template>
@@ -37,11 +37,17 @@ export default {
 
 .flex-left {
   padding: 1rem;
+  width: 100%; 
 }
 
 .flex-right {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
+}
+
+.flex-bottom {
+  /* background-color: red;  */
+  height: 5px;
 }
 
 header {

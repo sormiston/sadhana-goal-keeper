@@ -6,8 +6,7 @@
   :title="goal.title"
   :track="goal.track"
   :description="goal.description"
-  >
-
+>
 </goal-card>
 </template>
 

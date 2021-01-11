@@ -17,6 +17,8 @@
  --text-light: #7D7D7D;
  --red: #c30712;
  --green: #29c1a3;
+ --pink: #E95992; 
+ --blue: #5096F6;
 }
 
 html {
