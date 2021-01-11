@@ -18,6 +18,8 @@
   --green: #29c1a3;
   --pink: #e95992;
   --blue: #5096f6;
+  --jet: #333232;
+  --eagle-green: #073b4c;
   --backdrop: rgba(255, 255, 255, 0.95);
   
   --breakpoint-sm: 575px;
@@ -39,7 +41,6 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: rgba(245, 245, 248, 0.95);
 }
 
 h3 {
