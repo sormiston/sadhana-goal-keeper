@@ -32,15 +32,8 @@ export default {
     ],
     computed: {
         progress() {
-            // var progressComplete = this.stepsComplete / this.totalSteps * 100; 
-            return '75%'; 
+            return this.stepsComplete / this.totalSteps * 100 + '%'; 
         },
-        filledColor() {
-            // var fillColor = SolidColor;
-            // fillColor.rgb.hexValue = "E95992"; 
-            // return fillColor; 
-            return 0; 
-        }
     },
     methods: {
 
