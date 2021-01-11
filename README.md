@@ -35,25 +35,22 @@ https://www.figma.com/file/CagjBx2DpD4xXivZsCNcPH/mintbean-goal-tracker?node-id=
 ## Data Models
 
 1. Goals
-   * _State_: 
-      * _Goals:_
-        cycle: "Weekly"
-​​        cycleDayOfMonth: "First"
-​​        cycleDaysOfWeek: Array(3) [ "Monday", "Wednesday", "Friday" ]
-​​        cycleOnceMonthlyDay: ""
-​​        deadline: "2021-03-23T03:59:00.000Z"
-​​        description: "Run around the block"
-​​        durationMinutes: Number - only present if non-zero
-        durationHours: Number - only present if non-zero
-​​        id: "-MQi9vN-sGS16qf-41W5"
-​​        noDuration: false
-​​        noTime: false
-​​        startDate: "2021-01-10T12:00:00.000Z"
-​​        title: "Go for a run"
-​​        track: "Health"
-TO ADD:
-        totalSteps: 
-        stepsComplete:
+  * cycle: String
+  * cycleDayOfMonth: String
+  * cycleDaysOfWeek: Array
+  * cycleOnceMonthlyDay: String
+  * deadline: ISOString - YYYY-MM-DDTHH:MM:SS.000Z
+  * description: String
+  * durationMinutes: Number - only present if non-zero
+  * durationHours: Number - only present if non-zero
+  * id: string
+  * noDuration: Boolean
+  * noTime: Boolean
+  * startDate: ISOString YYYY-MM-DDTHH:MM:SS.000Z
+  * title: string
+  * track: String
+  * totalSteps: Number
+  * stepsComplete: Number
         
    
 2. Steps
