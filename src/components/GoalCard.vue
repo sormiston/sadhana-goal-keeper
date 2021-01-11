@@ -6,8 +6,8 @@
     <template #progressBar>
         <progress-bar 
             :track="this.track"
-            :totalSteps="2"
-            :stepsComplete="1"
+            :totalSteps="this.totalSteps"
+            :stepsComplete="this.stepsCompleted"
         ></progress-bar>
     </template>
 </base-card>

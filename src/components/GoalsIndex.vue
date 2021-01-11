@@ -6,6 +6,8 @@
   :title="goal.title"
   :track="goal.track"
   :description="goal.description"
+  :totalSteps="goal.totalSteps"
+  :stepsCompleted="goal.stepsCompleted"
 >
 </goal-card>
 </template>
