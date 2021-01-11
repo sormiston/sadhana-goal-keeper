@@ -8,7 +8,7 @@
       <div v-if="$slots.icons" class="icons">
         <slot name="icons"></slot>
       </div>
-      <div v-if="$slots.progressBar" class="flex-bottom">
+      <div v-if="$slots.progressBar" class="progress-bar">
         <slot name="progressBar"></slot>
       </div>
     </div>
@@ -45,8 +45,8 @@ export default {
   border-bottom-right-radius: 12px;
 }
 
-.flex-bottom {
-  /* background-color: red;  */
+.progress-bar {
+  margin-top: 10px; 
   height: 5px;
 }
 
