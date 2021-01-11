@@ -12,12 +12,12 @@
             </div>
             <div>
                 <span>@ </span>
-                <span v-if="goalTotalMonths>0">{{goalTotalMonths}} months</span>
-                <span v-if="goalTotalMonths==0">{{goalTotalDays}} days</span>
+                <span v-if="goalTotalMonths>0">{{ goalTotalMonths }} months</span>
+                <span v-if="goalTotalMonths==0">{{ goalTotalDays }} days</span>
             </div>
             <div>
                 <span>@ </span>
-                <span>Monday, Wednesday, Friday</span>
+                <span>{{ goalCycle }}</span>
             </div>
             <div>
                 <span>@ </span>
@@ -52,6 +52,10 @@ export default {
         "stepsCompleted",
         "startDate",
         "endDate",
+        "cycle",
+        "cycleDaysOfWeek",
+        "cycleDayOfMonth",
+        "cycleOnceMonthlyDay",
     ],
     computed: {
         goalTotalMonths() {
@@ -63,6 +67,28 @@ export default {
             const startDate = dayjs(String(this.startDate));
             const endDate = dayjs(String(this.endDate));
             return endDate.diff(startDate, 'day');
+        },
+        goalCycle() {
+            var cycle = ""; 
+            switch (this.cycle) {
+                case "Daily": 
+                    cycle = this.cycle; 
+                    break; 
+                case "Weekly": 
+                    var i; 
+                    for (i=0; i<this.cycleDaysOfWeek.length; i++) {
+                        cycle += this.cycleDaysOfWeek[i];
+                        if (i!=this.cycleDaysOfWeek.length-1) cycle += ", ";
+                    }
+                    break; 
+                case "Monthly": 
+                    cycle = this.cycleDayOfMonth + this.cycleOnceMonthlyDay + 'of each month'
+                    break; 
+                default: 
+                    cycle = this.cycle; 
+                    break; 
+            }
+            return cycle; 
         }
     }
 };

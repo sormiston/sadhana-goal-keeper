@@ -13,6 +13,10 @@
   :stepsCompleted="goal.stepsComplete"
   :startDate="goal.startDate"
   :endDate="goal.deadline"
+  :cycle="goal.cycle"
+  :cycleDaysOfWeek="goal.cycleDaysOfWeek"
+  :cycleDayOfMonth="goal.cycleDayOfMonth"
+  :cycleOnceMonthlyDay="goal.cycleOnceMonthlyDay"
 >
 </goal-card>
 </template>
