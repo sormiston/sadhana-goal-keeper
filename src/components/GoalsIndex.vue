@@ -6,6 +6,13 @@
   :title="goal.title"
   :track="goal.track"
   :description="goal.description"
+  :noDuration="goal.noDuration"
+  :durationMinutes="goal.durationMinutes"
+  :durationHours="goal.durationHours"
+  :totalSteps="goal.totalSteps"
+  :stepsCompleted="goal.stepsComplete"
+  :startDate="goal.startDate"
+  :endDate="goal.endDate"
 >
 </goal-card>
 </template>
