@@ -27,6 +27,12 @@ export default {
     async postNewSteps(context, payload) {
       const userId = context.rootGetters.userId;
       const steps = buildSteps(payload);
+      const totalSteps = steps.length;
+      context.dispatch("registerStepDataWithGoal", {
+        goalId: steps[0].goalId,
+        totalSteps
+      });
+
       for (const item of steps) {
         try {
           const response = await axios.post(
@@ -38,6 +44,23 @@ export default {
         } catch (error) {
           console.error(error.message);
         }
+      }
+    },
+
+    async registerStepDataWithGoal(context, payload) {
+      const userId = context.rootGetters.userId;
+      try {
+        const response = await axios.patch(
+          `${userId}/goals/${payload.goalId}.json`,
+          JSON.stringify({
+            stepsComplete: 0,
+            totalSteps: payload.totalSteps
+          })
+        );
+        if (response.status < 200 || response.status >= 300)
+          throw new Error(response.status);
+      } catch (error) {
+        console.error(error.message);
       }
     }
   }
