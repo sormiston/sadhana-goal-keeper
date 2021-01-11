@@ -25,12 +25,14 @@ export default {
             
         };
     },
-    props: {
-        goal: {}
-    },
+    props: [
+        "track",
+        "totalSteps",
+        "stepsComplete",
+    ],
     computed: {
         progress() {
-            /* calculate the thing */
+            // var progressComplete = this.stepsComplete / this.totalSteps * 100; 
             return '75%'; 
         },
         filledColor() {
