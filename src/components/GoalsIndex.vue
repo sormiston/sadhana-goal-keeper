@@ -4,7 +4,7 @@
   <li v-for="goal in filteredGoals" :key="goal.id">
     <p>{{ goal.title}}</p>
     <p>{{ goal.track }}</p>
-    <p>{{goal.description }}</p>
+    <p>{{ goal.description }}</p>
     <p>...</p>
     </li>
 </ul>
