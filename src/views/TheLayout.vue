@@ -1,5 +1,8 @@
 <template>
   <main>
+    <div class="app-title">
+      <span style="font-weight:bold;">goalTracker</span><span>.app</span>
+    </div>
     <section>
       <router-view />
     </section>
@@ -18,10 +21,17 @@ main {
 
 section {
   background-color: var(--backdrop);
-  margin-top: 60px;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 16px - 30px);
   padding-top: 10px;
   overflow: hidden;
+}
+
+.app-title {
+  padding-left: 14px; 
+  padding-top: 15px; 
+  padding-bottom: 15px; 
+  color:white; 
+  letter-spacing: 0.1em; 
 }
 
 @media screen and (min-width: 767px) {
@@ -30,7 +40,10 @@ section {
     border-top-left-radius: 50px;
     padding-top: 40px;
     padding-left: 74px;
-    
+  }
+
+  .app-title {
+    padding-left: 45px; 
   }
 }
 </style>
