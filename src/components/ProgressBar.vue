@@ -6,14 +6,17 @@
 
 <style scoped>
 .unfilled-progress {
-    background-color: #E3E3E3; 
-    height: 5px; 
-};
+  background-color: #E3E3E3; 
+  height: 5px; 
+  border-radius: 2.5px; 
+}
 
 .filled-progress {
-    background-color: #E95992; 
-};
-
+  background-color: #E95992; 
+  border-radius: 2.5px 0px 0px 2.5px; 
+  width: 75%;
+  height: 100%;
+}
 </style>
 
 <script>
