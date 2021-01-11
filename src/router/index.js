@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
-import GoalsIndex from "../components/GoalsIndex.vue";
 import NewGoalForm from "../components/NewGoalForm.vue";
 import StepsIndex from "../components/StepsIndex.vue"
 import TheLayout from "../views/TheLayout.vue"
+import GoalsPage from "../views/GoalsPage.vue";
 
 const routes = [
   {
@@ -12,8 +12,8 @@ const routes = [
     children: [
       {
         path: "goals",
-        name: "GoalsIndex",
-        component: GoalsIndex
+        name: "GoalsPage",
+        component: GoalsPage
       },
       {
         path: "addGoal",
