@@ -43,7 +43,8 @@ https://www.figma.com/file/CagjBx2DpD4xXivZsCNcPH/mintbean-goal-tracker?node-id=
 ​​        cycleOnceMonthlyDay: ""
 ​​        deadline: "2021-03-23T03:59:00.000Z"
 ​​        description: "Run around the block"
-​​        durationMinutes: 30
+​​        durationMinutes: Number - only present if non-zero
+        durationHours: Number - only present if non-zero
 ​​        id: "-MQi9vN-sGS16qf-41W5"
 ​​        noDuration: false
 ​​        noTime: false

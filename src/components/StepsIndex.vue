@@ -1,21 +1,19 @@
 <template>
-  <section>
-    <step-card
-      v-for="step in steps"
-      :key="step.dateTime"
-      :title="step.title"
-      :dateTime="step.dateTime"
-      :timeSpecific="step.timeSpecific"
-      :durational="step.durational"
-      :hoursDuration="step.hoursDuration || null"
-      :minutesDuration="step.minutesDuration || null"
-      :status="step.status"
-      :track="step.track"
-      :goalId="step.goalId"
-      :description="step.description"
-    >
-    </step-card>
-  </section>
+  <step-card
+    v-for="step in steps"
+    :key="step.dateTime"
+    :title="step.title"
+    :dateTime="step.dateTime"
+    :timeSpecific="step.timeSpecific"
+    :durational="step.durational"
+    :hoursDuration="step.hoursDuration || null"
+    :minutesDuration="step.minutesDuration || null"
+    :status="step.status"
+    :track="step.track"
+    :goalId="step.goalId"
+    :description="step.description"
+  >
+  </step-card>
 </template>
 
 
@@ -46,7 +44,6 @@ export default {
     this.getTodaysSteps();
   }
 };
-
 </script>
 
 <style scoped>
