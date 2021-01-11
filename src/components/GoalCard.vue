@@ -7,23 +7,23 @@
         <div class="goal-time-info">
             <div>
                 <div v-if="!this.noDuration">
-                    <span>@ </span>
+                    <span>Duration: </span>
                     <span v-if="this.durationHours!=null && this.durationHours>0">{{this.durationHours}} hours </span>
                     <span v-if="this.durationMinutes!=null && this.durationMinutes>0">{{ this.durationMinutes }} minutes</span>
                 </div>
                 <div>
-                    <span>@ </span>
+                    <span>Timeline: </span>
                     <span v-if="goalTotalMonths>0">{{ goalTotalMonths }} months</span>
                     <span v-if="goalTotalMonths==0">{{ goalTotalDays }} days</span>
                 </div>
             </div>
             <div>
                 <div>
-                    <span>@ </span>
+                    <span>Repeats: </span>
                     <span>{{ goalCycle }}</span>
                 </div>
                 <div>
-                    <span>@ </span>
+                    <span>Category: </span>
                     <span>{{ this.track }}</span>
                 </div>
             </div>
