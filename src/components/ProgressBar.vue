@@ -1,6 +1,6 @@
 <template>
     <div class='unfilled-progress'>
-        <div class='filled-progress'></div>
+        <div class='filled-progress' :style="{width: progress}"></div>
     </div>
 </template>
 
@@ -14,7 +14,6 @@
 .filled-progress {
   background-color: #E95992; 
   border-radius: 2.5px 0px 0px 2.5px; 
-  width: 75%;
   height: 100%;
 }
 </style>
@@ -23,25 +22,22 @@
 export default {
     data() {
         return {
-
+            
         };
     },
     props: {
-        percent: {
-            type: Number,
-            default: 0,
-            required: true,
-            validator: val => val >= 0 && val <= 100
-        },
+        goal: {}
     },
     computed: {
         progress() {
-            return 0.75; 
+            /* calculate the thing */
+            return '75%'; 
         },
         filledColor() {
-            var fillColor = new SolidColor;
-            fillColor.rgb.hexValue = "E95992"; 
-            return fillColor; 
+            // var fillColor = SolidColor;
+            // fillColor.rgb.hexValue = "E95992"; 
+            // return fillColor; 
+            return 0; 
         }
     },
     methods: {
