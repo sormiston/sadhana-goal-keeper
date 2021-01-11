@@ -1,18 +1,22 @@
 <template>
 <p v-if="goalsLoading">LOADING...</p>
-<ul>
-  <li v-for="goal in filteredGoals" :key="goal.id">
-    <p>{{ goal.title}}</p>
-    <p>{{ goal.track }}</p>
-    <p>{{ goal.description }}</p>
-    <p>...</p>
-    </li>
-</ul>
+<goal-card 
+  v-for="goal in filteredGoals" 
+  :key="goal.id"
+  :title="goal.title"
+  :track="goal.track"
+  :description="goal.description"
+  >
 
+</goal-card>
 </template>
 
 <script>
+import GoalCard from './GoalCard.vue'; 
 export default {
+  components: {
+    GoalCard, 
+  },
   data() {
     return {
       goalsLoading: false

@@ -12,6 +12,9 @@
     <div v-if="$slots.markDone" class="flex-right">
       <slot name="markDone"></slot>
     </div>
+    <div v-if="$slots.showProgressBar">
+      <slot name="progressBar"></slot>
+    </div>
   </div>
 </template>
 
