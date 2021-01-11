@@ -40,8 +40,9 @@ export default function buildSteps(goal) {
         durational: !goal.noDuration,
         hoursDuration: goal.durationHours || null,
         minutesDuration: goal.durationMinutes || null,
-        status: "not-done",
-        track: goal.track
+        status: false,
+        track: goal.track,
+        description: goal.description
       };
       if (goal.cycleOnceMonthlyDay === dayOfWeek[dayForMonthlyCalc.day()]) {
         counter++;
@@ -64,10 +65,12 @@ export default function buildSteps(goal) {
       title: goal.title,
       dateTime: day,
       timeSpecific: !goal.noTime,
+      durational: !goal.noDuration,
       hoursDuration: goal.durationHours || null,
       minutesDuration: goal.durationMinutes || null,
-      status: "not-done",
-      track: goal.track
+      done: false,
+      track: goal.track,
+      description: goal.description,
     };
     if (goal.cycle === "Daily") {
       steps.push(step);

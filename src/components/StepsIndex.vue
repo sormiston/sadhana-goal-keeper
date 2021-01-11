@@ -1,26 +1,37 @@
 <template>
-  <p v-if="stepsLoading">LOADING...</p>
-  <ul>
-    <li v-for="step in filteredSteps" :key="step.dateTime">
-      <p>{{ step.title }}</p>
-      <p>{{ step.track }}</p>
-
-      <p>...</p>
-    </li>
-  </ul>
+  <section>
+    <step-card
+      v-for="step in steps"
+      :key="step.dateTime"
+      :title="step.title"
+      :dateTime="step.dateTime"
+      :timeSpecific="step.timeSpecific"
+      :durational="step.durational"
+      :hoursDuration="step.hoursDuration || null"
+      :minutesDuration="step.minutesDuration || null"
+      :status="step.status"
+      :track="step.track"
+      :goalId="step.goalId"
+      :description="step.description"
+    >
+    </step-card>
+  </section>
 </template>
 
 
 <script>
+import StepCard from "./StepCard.vue";
 export default {
+  components: {
+    StepCard
+  },
   data() {
     return {
       stepsLoading: false
     };
   },
   computed: {
-    filteredSteps() {
-      // filter logic TODO - return all for now
+    steps() {
       return this.$store.getters["steps/steps"];
     }
   },
@@ -35,4 +46,13 @@ export default {
     this.getTodaysSteps();
   }
 };
+
 </script>
+
+<style scoped>
+header {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+</style>
