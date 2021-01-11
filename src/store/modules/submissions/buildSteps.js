@@ -40,7 +40,7 @@ export default function buildSteps(goal) {
         durational: !goal.noDuration,
         hoursDuration: goal.durationHours || null,
         minutesDuration: goal.durationMinutes || null,
-        status: "not-done",
+        status: false,
         track: goal.track,
         description: goal.description
       };
@@ -65,11 +65,12 @@ export default function buildSteps(goal) {
       title: goal.title,
       dateTime: day,
       timeSpecific: !goal.noTime,
+      durational: !goal.noDuration,
       hoursDuration: goal.durationHours || null,
       minutesDuration: goal.durationMinutes || null,
-      status: "not-done",
+      done: false,
       track: goal.track,
-      description: goal.description
+      description: goal.description,
     };
     if (goal.cycle === "Daily") {
       steps.push(step);
