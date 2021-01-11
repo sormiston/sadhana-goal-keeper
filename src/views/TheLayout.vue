@@ -150,10 +150,15 @@ section {
         display: block;
         position: relative;
     }
+    
+    .deselected :hover {
+      background-color: var(--pink);
+    }
 }
 </style>
 
 <script>
+import router from '../router/index.js';
 export default {
   data() {
     return {
@@ -180,9 +185,11 @@ export default {
     },
     selectToday: function() {
       this.navSelection = "today";
+      router.push('steps');
     },
     selectGoals: function() {
       this.navSelection = "goals";
+      router.push('goals');
     }
   }
 }
