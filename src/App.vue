@@ -4,28 +4,41 @@
     <router-link to="/addGoal">Input</router-link> | 
     <router-link to="/steps">Steps Index</router-link>
   </div>
+  <div>
   <router-view />
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+
+:root {
+  --primary: #3C3E74;
+ --text-light: #7D7D7D;
+ --red: #c30712;
+ --green: #29c1a3;
+}
+
+html {
+   font-family: Poppins, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: #000;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: rgba(245, 245, 248, 0.95);
 }
+
+h3 {
+  font-size: 1.5rem;
+  margin: 0 0 4px;
+}
+
+p {
+  margin: 4px auto;
+}
+
 </style>

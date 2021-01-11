@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="logForm">
+  <form @submit.prevent="postForm">
     <div class="form-control">
       <input
         id="title"
@@ -265,7 +265,7 @@ export default {
     }
   },
   methods: {
-    logForm() {
+    postForm() {
       let startDate = dayjs(this.form.startDate);
       if (this.form.startTime) {
         startDate = startDate
