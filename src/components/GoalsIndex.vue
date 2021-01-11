@@ -6,8 +6,17 @@
   :title="goal.title"
   :track="goal.track"
   :description="goal.description"
+  :noDuration="goal.noDuration"
+  :durationMinutes="goal.durationMinutes"
+  :durationHours="goal.durationHours"
   :totalSteps="goal.totalSteps"
-  :stepsCompleted="goal.stepsCompleted"
+  :stepsCompleted="goal.stepsComplete"
+  :startDate="goal.startDate"
+  :endDate="goal.deadline"
+  :cycle="goal.cycle"
+  :cycleDaysOfWeek="goal.cycleDaysOfWeek"
+  :cycleDayOfMonth="goal.cycleDayOfMonth"
+  :cycleOnceMonthlyDay="goal.cycleOnceMonthlyDay"
 >
 </goal-card>
 </template>
