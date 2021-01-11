@@ -4,36 +4,48 @@
         <p>{{ description }}</p>
     </template>
     <template #icons>
-        <div>
-            <div v-if="!this.noDuration">
-                <span>@ </span>
-                <span v-if="this.durationHours!=null && this.durationHours>0">{{this.durationHours}} hours </span>
-                <span v-if="this.durationMinutes!=null && this.durationMinutes>0">{{ this.durationMinutes }} minutes</span>
+        <div class="goal-time-info">
+            <div>
+                <div v-if="!this.noDuration">
+                    <span>@ </span>
+                    <span v-if="this.durationHours!=null && this.durationHours>0">{{this.durationHours}} hours </span>
+                    <span v-if="this.durationMinutes!=null && this.durationMinutes>0">{{ this.durationMinutes }} minutes</span>
+                </div>
+                <div>
+                    <span>@ </span>
+                    <span v-if="goalTotalMonths>0">{{ goalTotalMonths }} months</span>
+                    <span v-if="goalTotalMonths==0">{{ goalTotalDays }} days</span>
+                </div>
             </div>
             <div>
-                <span>@ </span>
-                <span v-if="goalTotalMonths>0">{{ goalTotalMonths }} months</span>
-                <span v-if="goalTotalMonths==0">{{ goalTotalDays }} days</span>
-            </div>
-            <div>
-                <span>@ </span>
-                <span>{{ goalCycle }}</span>
-            </div>
-            <div>
-                <span>@ </span>
-                <span>{{ this.track }}</span>
+                <div>
+                    <span>@ </span>
+                    <span>{{ goalCycle }}</span>
+                </div>
+                <div>
+                    <span>@ </span>
+                    <span>{{ this.track }}</span>
+                </div>
             </div>
         </div>
     </template>
     <template #progressBar>
-        <progress-bar 
-            :track="this.track"
-            :totalSteps="this.totalSteps"
-            :stepsComplete="this.stepsCompleted"
-        ></progress-bar>
+        <progress-bar :track="this.track" :totalSteps="this.totalSteps" :stepsComplete="this.stepsCompleted"></progress-bar>
     </template>
 </base-card>
 </template>
+
+<style>
+@media only screen and (max-width: 600px) {
+    .goal-time-info {
+        display: flex; 
+    }
+
+    .goal-time-info div {
+        flex: 50%;
+    }
+}
+</style>
 
 <script>
 import ProgressBar from './ProgressBar.vue';
@@ -73,26 +85,26 @@ export default {
             return endDate.diff(startDate, 'day');
         },
         goalCycle() {
-            var cycle = ""; 
+            var cycle = "";
             switch (this.cycle) {
-                case "Daily": 
-                    cycle = this.cycle; 
-                    break; 
-                case "Weekly": 
-                    var i; 
-                    for (i=0; i<this.cycleDaysOfWeek.length; i++) {
+                case "Daily":
+                    cycle = this.cycle;
+                    break;
+                case "Weekly":
+                    var i;
+                    for (i = 0; i < this.cycleDaysOfWeek.length; i++) {
                         cycle += this.cycleDaysOfWeek[i];
-                        if (i!=this.cycleDaysOfWeek.length-1) cycle += ", ";
+                        if (i != this.cycleDaysOfWeek.length - 1) cycle += ", ";
                     }
-                    break; 
-                case "Monthly": 
+                    break;
+                case "Monthly":
                     cycle = this.cycleDayOfMonth + this.cycleOnceMonthlyDay + 'of each month'
-                    break; 
-                default: 
-                    cycle = this.cycle; 
-                    break; 
+                    break;
+                default:
+                    cycle = this.cycle;
+                    break;
             }
-            return cycle; 
+            return cycle;
         }
     }
 };
