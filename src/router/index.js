@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import NewGoalForm from "../views/NewGoalForm.vue";
+import NewGoalForm from "../views/NewGoalForm/NewGoalForm.vue";
 import StepsIndex from "../components/StepsIndex.vue"
 import TheLayout from "../views/TheLayout.vue"
 import GoalsPage from "../views/GoalsPage.vue";

@@ -13,11 +13,11 @@ const store = createStore({
       userId: 'x1',
       userCustomization: {
         categories: [
-          { category: 'Health', color: '--pink' },
-          { category: 'Learning', color: '--green' },
-          { category: "New Year's", color: '--blue' },
-          { category: 'Self-Growth', color: '--eagle-green' },
-          { category: 'Work', color: '--jet'}
+          { name: 'Health', color: '--pink' },
+          { name: 'Learning', color: '--green' },
+          { name: "New Year's", color: '--blue' },
+          { name: 'Self-Growth', color: '--eagle-green' },
+          { name: 'Work', color: '--jet'}
           ]
       }
     };
@@ -25,6 +25,9 @@ const store = createStore({
   mutations: {},
   actions: {},
   getters: {
+    categories(state) {
+      return state.userCustomization.categories
+    },
     userId(state) {
       return state.userId
     },

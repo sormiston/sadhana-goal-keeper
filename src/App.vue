@@ -22,6 +22,8 @@
   --eagle-green: #073b4c;
   --backdrop: rgba(255, 255, 255, 0.95);
   
+  --card-box-shadow: 0px 0px 6px #d8d8d8;
+  
   --breakpoint-sm: 575px;
   --breakpoint-md: 767px;
   --breakpoint-lg: 991px;
@@ -45,6 +47,9 @@ body {
 
 h3 {
   font-size: 1.5rem;
+  margin: 0 0 4px;
+}
+h4 {
   margin: 0 0 4px;
 }
 
