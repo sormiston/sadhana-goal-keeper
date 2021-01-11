@@ -1,21 +1,34 @@
-import { createStore } from 'vuex';
-import dayjs from 'dayjs';
+import { createStore } from "vuex";
+import submissionsModule from "./modules/submissions/index.js";
+import goalsModule from "./modules/goals/index.js"
+import stepsModule from "./modules/steps/index.js"
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+dayjs.extend(utc);
 
 const store = createStore({
   state() {
     return {
-      timeLoaded: dayjs()
-    }
+      timeLoaded: dayjs().local(),
+      userId: 'x1'
+    };
   },
   mutations: {},
   actions: {},
   getters: {
+    userId(state) {
+      return state.userId
+    },
     currentTime(state) {
+      // returns a daysjs object
       return state.timeLoaded;
     }
   },
-  modules: {}
+  modules: {
+    submissions: submissionsModule,
+    goals: goalsModule,
+    steps: stepsModule
+  }
 });
 
-
-export default store
+export default store;
