@@ -64,9 +64,6 @@ export default {
       this.$store.dispatch('steps/stepDone', { goalId: this.goalId, dateTime: this.dateTime } )
     }
   },
-  created() {
-    console.log(this.$props);
-  }
 };
 </script>
 

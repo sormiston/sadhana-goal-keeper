@@ -10,12 +10,24 @@ const store = createStore({
   state() {
     return {
       timeLoaded: dayjs().local(),
-      userId: 'x1'
+      userId: 'x1',
+      userCustomization: {
+        categories: [
+          { name: 'Health', color: '--pink' },
+          { name: 'Learning', color: '--green' },
+          { name: "New Year's", color: '--blue' },
+          { name: 'Self-Growth', color: '--eagle-green' },
+          { name: 'Work', color: '--jet'}
+          ]
+      }
     };
   },
   mutations: {},
   actions: {},
   getters: {
+    categories(state) {
+      return state.userCustomization.categories
+    },
     userId(state) {
       return state.userId
     },

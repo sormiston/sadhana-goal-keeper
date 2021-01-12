@@ -1,28 +1,41 @@
 <template>
-    <div class="nav-bar">
-        <div id="dashboard-button" :class="dashboardNavStatus" v-on:click="selectDashboard">
-            <div class='nav-icon-container'>
-                <div :class='dashboardNavIconStatus'><view-dashboard/></div>
-                <div class="nav-text"><p>dashboard</p></div>
+<div class="nav-bar">
+    <div id="dashboard-button" :class="dashboardNavStatus" v-on:click="selectDashboard">
+        <div class='nav-icon-container'>
+            <div :class='dashboardNavIconStatus'>
+                <view-dashboard />
             </div>
-        </div>
-        <div id="today-button" :class="todayNavStatus" v-on:click="selectToday">
-            <div class='nav-icon-container'>
-                <div :class='todayNavIconStatus'><checkbox-marked/></div>
-                <div class="nav-text"><p>my tasks</p></div>
-            </div>
-        </div>
-        <div id="goals-button" :class="goalsNavStatus" v-on:click="selectGoals">
-            <div class='nav-icon-container'>
-                <div :class='goalsNavIconStatus'><clipboard/></div>
-                <div class="nav-text"><p>my goals</p></div>
+            <div class="nav-text">
+                <p>dashboard</p>
             </div>
         </div>
     </div>
+    <div id="today-button" :class="todayNavStatus" v-on:click="selectToday">
+        <div class='nav-icon-container'>
+            <div :class='todayNavIconStatus'>
+                <checkbox-marked />
+            </div>
+            <div class="nav-text">
+                <p>my tasks</p>
+            </div>
+        </div>
+    </div>
+    <div id="goals-button" :class="goalsNavStatus" v-on:click="selectGoals">
+        <div class='nav-icon-container'>
+            <div :class='goalsNavIconStatus'>
+                <clipboard />
+            </div>
+            <div class="nav-text">
+                <p>my goals</p>
+            </div>
+        </div>
+    </div>
+</div>
 </template>
 
 <style scoped>
 .nav-bar {
+    display: none;
     position: absolute;
     top: 100px;
     width: 88px;
@@ -46,32 +59,36 @@
 }
 
 .nav-text p {
-  font-size: 10px; 
-  color: var(--primary);
-  margin: 0 0 0 -20%;
-  width: 100%; 
-  text-align: center;
+    font-size: 10px;
+    color: var(--primary);
+    margin: 0 0 0 -20%;
+    width: 100%;
+    text-align: center;
 }
 
 .deselected p {
-  display: none;
+    display: none;
 }
 
-.nav-icon-deselected {
+<<<<<<< HEAD .nav-icon-deselected {
     width: 30px;
     height: 30px;
     font-size: 30px;
-    color: white; 
+    color: white;
 }
 
 .nav-icon-selected {
     width: 30px;
     height: 30px;
     font-size: 30px;
-    color: var(--primary); 
+    color: var(--primary);
 }
 
 @media screen and (min-width: 767px) {
+    .nav-bar {
+        display: block;
+    }
+
     .selected {
         background-color: white;
         width: 88px;
@@ -89,63 +106,70 @@
         display: block;
         position: relative;
     }
+
+    .deselected :hover {
+        background-color: var(--pink);
+    }
 }
 </style>
 
 <script>
 import router from '../router/index.js';
-import { ViewDashboard, CheckboxMarked, Clipboard } from 'mdue';
-
-export default {
-  data() {
-    return {
-      navSelection: "goals",
-    };
-  },
-  components: {
+import {
     ViewDashboard,
     CheckboxMarked,
     Clipboard
-  },
-  computed: {
-    dashboardNavStatus() {
-      if (this.navSelection == "dashboard") return "selected";
-      return "deselected";
+} from 'mdue';
+export default {
+    data() {
+        return {
+            navSelection: "goals"
+        };
     },
-    todayNavStatus() {
-      if (this.navSelection == "today") return "selected";
-      return "deselected";
+    components: {
+        ViewDashboard,
+        CheckboxMarked,
+        Clipboard
     },
-    goalsNavStatus() {
-      if (this.navSelection == "goals") return "selected";
-      return "deselected";
+    computed: {
+        dashboardNavStatus() {
+            if (this.navSelection == "dashboard") return "selected";
+            return "deselected";
+        },
+        todayNavStatus() {
+            if (this.navSelection == "today") return "selected";
+            return "deselected";
+        },
+        goalsNavStatus() {
+            if (this.navSelection == "goals") return "selected";
+            return "deselected";
+        },
+        dashboardNavIconStatus() {
+            if (this.navSelection == "dashboard") return "nav-icon-selected";
+            return "nav-icon-deselected";
+        },
+        todayNavIconStatus() {
+            if (this.navSelection == "today") return "nav-icon-selected";
+            return "nav-icon-deselected";
+        },
+        goalsNavIconStatus() {
+            if (this.navSelection == "goals") return "nav-icon-selected";
+            return "nav-icon-deselected";
+        }
     },
-    dashboardNavIconStatus() {
-      if (this.navSelection == "dashboard") return "nav-icon-selected";
-      return "nav-icon-deselected";
-    },
-    todayNavIconStatus() {
-      if (this.navSelection == "today") return "nav-icon-selected";
-      return "nav-icon-deselected";
-    },
-    goalsNavIconStatus() {
-      if (this.navSelection == "goals") return "nav-icon-selected";
-      return "nav-icon-deselected";
+    methods: {
+        selectDashboard: function () {
+            this.navSelection = "dashboard";
+            router.push('dashboard');
+        },
+        selectToday: function () {
+            this.navSelection = "today";
+            router.push("steps");
+        },
+        selectGoals: function () {
+            this.navSelection = "goals";
+            router.push("goals");
+        }
     }
-  },
-  methods: {
-    selectDashboard: function() {
-      this.navSelection = "dashboard"; 
-      router.push('dashboard');
-    },
-    selectToday: function() {
-      this.navSelection = "today";
-      router.push('steps');
-    },
-    selectGoals: function() {
-      this.navSelection = "goals";
-      router.push('goals');
-    }
-  }
-}
+};
 </script>>
