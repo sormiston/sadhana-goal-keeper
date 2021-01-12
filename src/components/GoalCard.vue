@@ -7,6 +7,7 @@
         <div class="goal-time-info">
             <div>
                 <div v-if="!this.noDuration">
+                    <span><ab-testing/></span>
                     <span>Duration: </span>
                     <span v-if="this.durationHours!=null && this.durationHours>0">{{this.durationHours}} hours </span>
                     <span v-if="this.durationMinutes!=null && this.durationMinutes>0">{{ this.durationMinutes }} minutes</span>
@@ -50,11 +51,11 @@
 <script>
 import ProgressBar from './ProgressBar.vue';
 import dayjs from "dayjs";
-// import MenuIcon from 'vue-material-design-icons/Menu.vue';
+import { AbTesting } from 'mdue';
 export default {
     components: {
         ProgressBar,
-        // MenuIcon
+        AbTesting
     },
     props: [
         "key",

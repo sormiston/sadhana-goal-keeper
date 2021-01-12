@@ -30,7 +30,6 @@
 <script>
 import BasePill from '../components/baseUI/basePill.vue';
 import GoalsIndex from "../components/GoalsIndex.vue";
-
 export default {
     components: {
         BasePill,
