@@ -136,6 +136,7 @@ export default {
   methods: {
     selectDashboard: function() {
       this.navSelection = "dashboard"; 
+      router.push('dashboard');
     },
     selectToday: function() {
       this.navSelection = "today";

@@ -2,7 +2,8 @@
   <div id="nav">
     <router-link to="/">Goals Index</router-link> |
     <router-link to="/addGoal">Input</router-link> |
-    <router-link to="/steps">Steps Index</router-link>
+    <router-link to="/steps">Steps Index</router-link> |
+    <router-link to="/dashboard">Dashboard</router-link>
   </div>
 
   <router-view />
@@ -29,6 +30,7 @@
 * {
   box-sizing: border-box;
 }
+
 html {
   font-family: Poppins, sans-serif;
   -webkit-font-smoothing: antialiased;
