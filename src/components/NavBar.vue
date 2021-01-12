@@ -70,7 +70,7 @@
     display: none;
 }
 
-<<<<<<< HEAD .nav-icon-deselected {
+.nav-icon-deselected {
     width: 30px;
     height: 30px;
     font-size: 30px;
@@ -172,4 +172,4 @@ export default {
         }
     }
 };
-</script>>
+</script>
