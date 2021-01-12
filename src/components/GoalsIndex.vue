@@ -93,7 +93,7 @@ export default {
         if (this.passFilter.length === 0)
           setTimeout(() => (this.passFilter = "All"), 750);
       }
-      console.log(this.passFilter);
+    
     }
   },
   created() {
