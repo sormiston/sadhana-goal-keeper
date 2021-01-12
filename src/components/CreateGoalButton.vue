@@ -1,6 +1,6 @@
 <template>
     <div class="button" v-on:click="createGoal">
-        <span class="button-text">create</span>
+        <span>🎉 create</span>
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 .button {
     display: inline-block;
     background-color: white; 
-    width: 100px;
+    width: 122px;
     align-content: right;
     padding: 3px 15px 3px 15px; 
     border-radius: 30px; 
@@ -20,13 +20,12 @@
     box-shadow: 4px 4px 4px rgba(151, 151, 151, 0.25);
     align-content: center;
     text-align: center;
-}
-.button-text {
     font-size: 16px; 
     font-weight: 500;
     color: var(--primary);
     font-weight: bold;
 }
+
 </style>
 
 <script>
