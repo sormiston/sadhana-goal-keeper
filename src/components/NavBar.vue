@@ -1,55 +1,60 @@
 <template>
-    <div class="nav-bar">
-        <div id="dashboard-button" :class="dashboardNavStatus" v-on:click="selectDashboard">
-            <div class='nav-icon-container'>
-                <div class='nav-icon'></div>
-                <div class="nav-text"><p>dashboard</p></div>
-            </div>
-        </div>
-        <div id="today-button" :class="todayNavStatus" v-on:click="selectToday">
-            <div class='nav-icon-container'>
-                <div class='nav-icon'></div>
-                <div class="nav-text"><p>my tasks</p></div>
-            </div>
-        </div>
-        <div id="goals-button" :class="goalsNavStatus" v-on:click="selectGoals">
-            <div class='nav-icon-container'>
-                <div class='nav-icon'></div>
-                <div class="nav-text"><p>my goals</p></div>
-            </div>
-        </div>
+  <div class="nav-bar">
+    <div
+      id="dashboard-button"
+      :class="dashboardNavStatus"
+      v-on:click="selectDashboard"
+    >
+      <div class="nav-icon-container">
+        <div class="nav-icon"></div>
+        <div class="nav-text"><p>dashboard</p></div>
+      </div>
     </div>
+    <div id="today-button" :class="todayNavStatus" v-on:click="selectToday">
+      <div class="nav-icon-container">
+        <div class="nav-icon"></div>
+        <div class="nav-text"><p>my tasks</p></div>
+      </div>
+    </div>
+    <div id="goals-button" :class="goalsNavStatus" v-on:click="selectGoals">
+      <div class="nav-icon-container">
+        <div class="nav-icon"></div>
+        <div class="nav-text"><p>my goals</p></div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
 .nav-bar {
-    position: absolute;
-    top: 100px;
-    width: 88px;
-    height: 65px;
+  display: none;
+  position: absolute;
+  top: 100px;
+  width: 88px;
+  height: 65px;
 }
 
 .selected {
-    align-content: center;
-    display: none;
+  align-content: center;
+  display: none;
 }
 
 .deselected {
-    display: none;
+  display: none;
 }
 
 .nav-icon-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -20% 0 0 -20%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -20% 0 0 -20%;
 }
 
 .nav-text p {
-  font-size: 10px; 
+  font-size: 10px;
   color: var(--primary);
   margin: 0 0 0 -20%;
-  width: 100%; 
+  width: 100%;
   text-align: center;
 }
 
@@ -58,43 +63,46 @@
 }
 
 .nav-icon {
-    width: 30px;
-    height: 30px;
-    background-color: var(--blue);
+  width: 30px;
+  height: 30px;
+  background-color: var(--blue);
 }
 
 @media screen and (min-width: 767px) {
-    .selected {
-        background-color: white;
-        width: 88px;
-        height: 65px;
-        box-shadow: 10ch;
-        display: flex;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
-        position: relative;
-    }
+  .nav-bar {
+    display: block;
+  }
+  .selected {
+    background-color: white;
+    width: 88px;
+    height: 65px;
+    box-shadow: 10ch;
+    display: flex;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    position: relative;
+  }
 
-    .deselected {
-        background-color: transparent;
-        width: 74px;
-        height: 65px;
-        display: block;
-        position: relative;
-    }
-    
-    .deselected :hover {
-      background-color: var(--pink);
-    }
+  .deselected {
+    background-color: transparent;
+    width: 74px;
+    height: 65px;
+    display: block;
+    position: relative;
+  }
+
+  .deselected :hover {
+    background-color: var(--pink);
+  }
 }
 </style>
 
 <script>
-import router from '../router/index.js';
+import router from "../router/index.js";
 
 export default {
   data() {
     return {
-      navSelection: "goals",
+      navSelection: "goals"
     };
   },
   computed: {
@@ -112,17 +120,17 @@ export default {
     }
   },
   methods: {
-    selectDashboard: function() {
-      this.navSelection = "dashboard"; 
+    selectDashboard: function () {
+      this.navSelection = "dashboard";
     },
-    selectToday: function() {
+    selectToday: function () {
       this.navSelection = "today";
-      router.push('steps');
+      router.push("steps");
     },
-    selectGoals: function() {
+    selectGoals: function () {
       this.navSelection = "goals";
-      router.push('goals');
+      router.push("goals");
     }
   }
-}
+};
 </script>>
