@@ -107,8 +107,8 @@
         position: relative;
     }
 
-    .deselected :hover {
-        background-color: var(--pink);
+    .nav-icon-deselected :hover {
+        font-size: 32px;
     }
 }
 </style>

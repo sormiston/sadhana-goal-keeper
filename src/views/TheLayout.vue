@@ -5,7 +5,7 @@
             <span style="font-weight:bold;">goalTracker</span><span>.app</span>
         </div>
         <div class="menu-button">
-            <span>menu</span>
+            <span><Menu/></span>
         </div>
     </div>
     <nav-bar></nav-bar>
@@ -39,6 +39,7 @@ section {
 .menu-button {
     position: absolute;
     right: 14px;
+    font-size: 20px;
 }
 
 .top-bar {
@@ -51,6 +52,7 @@ section {
 
 .menu-button :hover {
     font-weight: bold;
+    font-size: 22px;
 }
 
 .top-bar div {
@@ -85,9 +87,11 @@ nav-bar {
 
 <script>
 import NavBar from '../components/NavBar.vue';
+import {Menu} from 'mdue';
 export default {
   components: {
     NavBar,
+    Menu
   },
 }
 </script>
