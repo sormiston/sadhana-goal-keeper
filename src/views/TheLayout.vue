@@ -67,7 +67,7 @@ main {
 
 section {
   background-color: var(--backdrop);
-  min-height: calc(100vh - 16px - 30px);
+  min-height: calc(100vh - 26px - 30px);
   padding-top: 10px;
   overflow: hidden;
 }
@@ -82,6 +82,8 @@ section {
   cursor: pointer;
   transition: var(--ease-out-transition);
   z-index: 2;
+  height: 38px;
+  padding: 8px;
 }
 
 .btn-line {
@@ -117,7 +119,7 @@ section {
   z-index: 1;
   background-color: var(--primary);
   width: 100%;
-  top: 0;
+  top: 70px;
   bottom: 0;
   transition: var(--ease-out-transition);
 }
@@ -125,6 +127,7 @@ section {
 #mobileMenu.hidden {
   transform: translateY(-100%);
   opacity: 0;
+  z-index: 1;
 }
 .menu-item {
   display: inline-block;
@@ -144,11 +147,14 @@ section {
 .menu-item p {
   margin: 0;
 }
+
+.router-link-active > .menu-item {
+  color: var(--primary);
+  background-color: #fff;
+}
 #mobileMenu a:nth-child(1) > .menu-item {
-  margin-top: 70px;
   border-width: 1px 0;
 }
-
 
 /* // Line 3 - Rotate */
 .top-bar {
@@ -157,6 +163,7 @@ section {
   padding-top: 15px;
   padding-bottom: 15px;
   color: white;
+  height: 70px;
 }
 
 .menu-button :hover {
