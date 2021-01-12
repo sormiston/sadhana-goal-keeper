@@ -7,24 +7,23 @@
         <div class="goal-time-info">
             <div>
                 <div v-if="!this.noDuration">
-                    <span><ab-testing/></span>
-                    <span>Duration: </span>
+                    <span class="goal-info-icon"><alarm/></span>
                     <span v-if="this.durationHours!=null && this.durationHours>0">{{this.durationHours}} hours </span>
                     <span v-if="this.durationMinutes!=null && this.durationMinutes>0">{{ this.durationMinutes }} minutes</span>
                 </div>
                 <div>
-                    <span>Timeline: </span>
+                    <span class="goal-info-icon"><clock/></span>
                     <span v-if="goalTotalMonths>0">{{ goalTotalMonths }} months</span>
                     <span v-if="goalTotalMonths==0">{{ goalTotalDays }} days</span>
                 </div>
             </div>
             <div>
                 <div>
-                    <span>Repeats: </span>
+                    <span class="goal-info-icon"><repeat/></span>
                     <span>{{ goalCycle }}</span>
                 </div>
                 <div>
-                    <span>Category: </span>
+                    <span class="goal-info-icon"><tag/></span>
                     <span>{{ this.track }}</span>
                 </div>
             </div>
@@ -37,6 +36,11 @@
 </template>
 
 <style>
+.goal-info-icon {
+    padding-right: 3px;
+    font-size: 15px;
+}
+
 @media only screen and (max-width: 600px) {
     .goal-time-info {
         display: flex; 
@@ -45,17 +49,25 @@
     .goal-time-info div {
         flex: 50%;
     }
+
+    .goal-info-icon {
+        padding-right: 3px;
+        font-size: 12px;
+    }
 }
 </style>
 
 <script>
 import ProgressBar from './ProgressBar.vue';
 import dayjs from "dayjs";
-import { AbTesting } from 'mdue';
+import { Alarm, Clock, Repeat, Tag } from 'mdue';
 export default {
     components: {
         ProgressBar,
-        AbTesting
+        Alarm,
+        Clock,
+        Repeat,
+        Tag
     },
     props: [
         "key",
@@ -74,6 +86,7 @@ export default {
         "cycleDayOfMonth",
         "cycleOnceMonthlyDay",
     ],
+    
     computed: {
         goalTotalMonths() {
             const startDate = dayjs(String(this.startDate));
