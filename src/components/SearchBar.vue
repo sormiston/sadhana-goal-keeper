@@ -13,12 +13,12 @@
     border-radius: 30px; 
     display: inline-block;
     font-size: 16px; 
-    margin: 2px 2px 5px 2px;
+    margin: 2px 10px 5px 2px;
     border-color: white;
     border-style: solid;
     border-width: 1px;
     color: var(--text-light);
-    width: 60%;
+    width: 222px;
     box-shadow: 4px 4px 4px rgba(151, 151, 151, 0.25);
 }
 .icon {
@@ -35,7 +35,7 @@ input:focus {
 
 @media screen and (min-width: 767px) {
     .search-bar {
-        width: 30%;
+        width: 260px;
     }
 }
 </style>
