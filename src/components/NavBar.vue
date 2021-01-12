@@ -2,19 +2,19 @@
     <div class="nav-bar">
         <div id="dashboard-button" :class="dashboardNavStatus" v-on:click="selectDashboard">
             <div class='nav-icon-container'>
-                <div class='nav-icon'></div>
+                <div :class='dashboardNavIconStatus'><view-dashboard/></div>
                 <div class="nav-text"><p>dashboard</p></div>
             </div>
         </div>
         <div id="today-button" :class="todayNavStatus" v-on:click="selectToday">
             <div class='nav-icon-container'>
-                <div class='nav-icon'></div>
+                <div :class='todayNavIconStatus'><checkbox-marked/></div>
                 <div class="nav-text"><p>my tasks</p></div>
             </div>
         </div>
         <div id="goals-button" :class="goalsNavStatus" v-on:click="selectGoals">
             <div class='nav-icon-container'>
-                <div class='nav-icon'></div>
+                <div :class='goalsNavIconStatus'><clipboard/></div>
                 <div class="nav-text"><p>my goals</p></div>
             </div>
         </div>
@@ -42,7 +42,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -20% 0 0 -20%;
+    margin: -25% 0 0 -20%;
 }
 
 .nav-text p {
@@ -57,10 +57,18 @@
   display: none;
 }
 
-.nav-icon {
+.nav-icon-deselected {
     width: 30px;
     height: 30px;
-    background-color: var(--blue);
+    font-size: 30px;
+    color: white; 
+}
+
+.nav-icon-selected {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    color: var(--primary); 
 }
 
 @media screen and (min-width: 767px) {
@@ -81,21 +89,23 @@
         display: block;
         position: relative;
     }
-    
-    .deselected :hover {
-      background-color: var(--pink);
-    }
 }
 </style>
 
 <script>
 import router from '../router/index.js';
+import { ViewDashboard, CheckboxMarked, Clipboard } from 'mdue';
 
 export default {
   data() {
     return {
       navSelection: "goals",
     };
+  },
+  components: {
+    ViewDashboard,
+    CheckboxMarked,
+    Clipboard
   },
   computed: {
     dashboardNavStatus() {
@@ -109,6 +119,18 @@ export default {
     goalsNavStatus() {
       if (this.navSelection == "goals") return "selected";
       return "deselected";
+    },
+    dashboardNavIconStatus() {
+      if (this.navSelection == "dashboard") return "nav-icon-selected";
+      return "nav-icon-deselected";
+    },
+    todayNavIconStatus() {
+      if (this.navSelection == "today") return "nav-icon-selected";
+      return "nav-icon-deselected";
+    },
+    goalsNavIconStatus() {
+      if (this.navSelection == "goals") return "nav-icon-selected";
+      return "nav-icon-deselected";
     }
   },
   methods: {
