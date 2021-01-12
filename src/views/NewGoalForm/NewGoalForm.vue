@@ -138,7 +138,7 @@ export default {
     return {
       form: {
         title: "",
-        track: null,
+        track: '',
         description: "",
         startDate: this.$store.getters.currentTime.format("YYYY-MM-DD"),
         startTime: null,
@@ -201,9 +201,7 @@ export default {
 h1 {
   display: none;
 }
-.container {
-  padding: 0 15px 12px;
-}
+
 .form-control {
   margin-bottom: 10px;
 }
@@ -308,11 +306,7 @@ textarea:focus {
     width: 773px;
     min-height: 578px;
   }
-  .md-inline-flex {
-     display: flex;
-     justify-content: space-between;
-     margin-bottom: 1rem;
-  }
+  
   input[type="date"] {
     width: 160px;
     height: 35px;

@@ -67,4 +67,16 @@ p {
   left: 0;
   right: 0;
 }
+
+.container {
+  padding: 0 15px 12px;
+}
+
+@media screen and (min-width: 767px) {
+  .md-inline-flex {
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 1rem;
+  }
+}
 </style>

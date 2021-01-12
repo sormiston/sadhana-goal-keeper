@@ -5,11 +5,15 @@
 
 <script>
 export default {
-  props: ["category", "color", "selected", "mode"],
+  props: {
+    category: String,
+    color: String,
+    selected: [String, Array],
+  },
   emits: ["update:category"],
   computed: {
     styleObject() {
-      if (this.selected === this.category) {
+      if (this.selected === this.category || this.selected.includes(this.category)) {
         return {
           "background-color": `var(${this.color})`,
           color: "#fff"
@@ -42,6 +46,7 @@ div {
   font-weight: 600;
   border-style: solid;
   border-width: 1px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 767px) {
