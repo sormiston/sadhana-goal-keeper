@@ -15,6 +15,10 @@
         </div>
         <div class="clock-container">
             <clock/>
+            <div class='button-row'>
+                <circular-button type="play"/>
+                <circular-button type="stop"/>
+            </div>
         </div>
     </div>
 </template>
@@ -63,14 +67,21 @@
         padding: 5%;
         width: 100%;
     }
+    .button-row {
+        padding: 3%;
+        display: flex;
+        justify-content: space-evenly;
+    }
 }
 </style>
 
 <script>
 import Clock from './Clock.vue';
+import CircularButton from './CircularButton.vue';
 export default {
     components: {
         Clock,
+        CircularButton
     },
     computed: {
         title() {
