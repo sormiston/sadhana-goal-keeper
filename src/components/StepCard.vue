@@ -9,7 +9,9 @@
       <span v-if="minutesDuration">{{ minutesDurationDisplay }}</span>
     </template>
     <template #markDone>
-      <button :class="buttonConditionalStyling">{{ checkOrX }}</button>
+      <button :class="buttonConditionalStyling" @click="markDone">
+        {{ checkOrX }}
+      </button>
     </template>
   </base-card>
 </template>
@@ -26,8 +28,14 @@ export default {
     "status",
     "track",
     "goalId",
-    "description"
+    "description",
+    "id"
   ],
+  data() {
+    return {
+      localStatus: this.status
+    };
+  },
   computed: {
     hasHoursDuration() {
       return this.hoursDuration > 0;
@@ -48,36 +56,44 @@ export default {
       return `${this.minutesDuration} minutes`;
     },
     checkOrX() {
-      if (this.status) return '✔'
-      else return '✘'
+      if (this.localStatus) return "✔";
+      else return "✘";
     },
     buttonConditionalStyling() {
-      return { 'button--notDone': !this.status, 'button--done': this.status }
+      return {
+        "button--notDone": !this.localStatus,
+        "button--done": this.localStatus
+      };
     }
   },
   methods: {
     markDone() {
-      this.$store.dispatch('steps/stepDone', { goalId: this.goalId, dateTime: this.dateTime } )
+      if (this.localStatus) return;
+      this.$store.dispatch("steps/markDone", {
+        goalId: this.goalId,
+        id: this.id
+      });
+      this.localStatus = true;
     }
-  },
+  }
 };
 </script>
 
 <style scoped>
-  button {
-    height: 100%;
-    background-color: rgba(216, 216, 216, 0.25);
-    border: none;
-    min-width: 77px;
-    border-radius: inherit;
-    font-size: 2rem; 
-  }
-  
-  .button--notDone {
-    color: var(--red);
-  }
-  
-  .button--done {
-    color: var(--green);
-  }
+button {
+  height: 100%;
+  background-color: rgba(216, 216, 216, 0.25);
+  border: none;
+  min-width: 77px;
+  border-radius: inherit;
+  font-size: 2rem;
+}
+
+.button--notDone {
+  color: var(--red);
+}
+
+.button--done {
+  color: var(--green);
+}
 </style>
