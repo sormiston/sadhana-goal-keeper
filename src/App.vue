@@ -44,7 +44,10 @@ body {
   margin: 0;
   min-height: 100vh;
 }
-
+h1 {
+  font-size: 42px;
+  margin: 0;
+}
 h3 {
   font-size: 1.5rem;
   margin: 0 0 4px;

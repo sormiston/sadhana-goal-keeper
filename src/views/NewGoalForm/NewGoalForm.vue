@@ -1,6 +1,8 @@
 <template>
+  <h1>Create Goal</h1>
   <div class="container">
-    <form @submit.prevent="logPost">
+    <!-- REMEMBER TO CHANGE LOGFORM TO POSTFORM!!! -->
+    <form @submit.prevent="logForm">
       <section>
         <h3>🎉 What would you like to accomplish? Be specific.</h3>
         <div class="form-control">
@@ -9,13 +11,13 @@
             type="text"
             placeholder="Goal title"
             v-model.trim="form.title"
-            autofocus
           />
         </div>
         <div class="form-control">
           <textarea
             id="desc"
             rows="3"
+            placeholder="Description (max three lines)"
             v-model.trim="form.description"
           ></textarea>
         </div>
@@ -43,67 +45,74 @@
           <input type="checkbox" v-model="form.noTime" id="no-time" />
           <label for="no-time">No set time</label>
         </div> -->
-
-        <h4>How frequently do you want to work on this goal?</h4>
-        <div class="form-control">
-          <frequency-selector
-            v-model:cycle="form.cycle"
-            v-model:cycleDayOfMonth="form.cycleDayOfMonth"
-            :cycleDaysOfWeek="form.cycleDaysOfWeek"
-            v-model:cycleOnceMonthlyDay="form.cycleOnceMonthlyDay"
-            @updateCycleDaysOfWeek="updateCycleDaysOfWeek"
-          ></frequency-selector>
-        </div>
-        <h4>How long will the goal take each time?</h4>
-        <div class="form-control">
-          <div class="form-control-inline">
-            <input
-              type="number"
-              id="hours"
-              placeholder="0"
-              :disabled="form.noDuration"
-              v-model.number="form.durationHours"
-            /><label for="hours">hours</label>
-
-            <input
-              type="number"
-              id="minutes"
-              placeholder="0"
-              :disabled="form.noDuration"
-              v-model.number="form.durationMinutes"
-            /><label for="minutes">minutes</label>
-          </div>
-
-          <div class="form-control-inline">
-            <input type="checkbox" id="no-duration" v-model="form.noDuration" />
-            <label for="no-duration">No specific duration</label>
-
-            <span @click.stop="toggleTooltip">?</span>
-            <p v-if="tooltip">
-              Helpful reminder. <span @click="toggleTooltip">Dismiss.</span>
-            </p>
+        <div class="md-inline-flex">
+          <h4>How frequently do you want to work on this goal?</h4>
+          <div class="form-control">
+            <frequency-selector
+              v-model:cycle="form.cycle"
+              v-model:cycleDayOfMonth="form.cycleDayOfMonth"
+              :cycleDaysOfWeek="form.cycleDaysOfWeek"
+              v-model:cycleOnceMonthlyDay="form.cycleOnceMonthlyDay"
+              @updateCycleDaysOfWeek="updateCycleDaysOfWeek"
+            ></frequency-selector>
           </div>
         </div>
+        <div class="md-inline-flex">
+          <h4>How long will the goal take each time?</h4>
+          <div class="form-control">
+            <div class="form-control-inline">
+              <input
+                type="number"
+                id="hours"
+                placeholder="0"
+                :disabled="form.noDuration"
+                v-model.number="form.durationHours"
+              /><label for="hours">hours</label>
+  
+              <input
+                type="number"
+                id="minutes"
+                placeholder="0"
+                :disabled="form.noDuration"
+                v-model.number="form.durationMinutes"
+              /><label for="minutes">minutes</label>
+            </div>
+  
+            <div class="form-control-inline">
+              <input type="checkbox" id="no-duration" v-model="form.noDuration" />
+              <label for="no-duration">No specific duration</label>
+  
+              <span @click.stop="toggleTooltip">?</span>
+              <p v-if="tooltip">
+                Helpful reminder. <span @click="toggleTooltip">Dismiss.</span>
+              </p>
+            </div>
+          </div>
+        </div>
 
         <div class="form-control">
-          <h4>When do you want to start working on this goal?</h4>
-          <input
-            type="date"
-            id="start"
-            name="startDate"
-            :min="today"
-            v-model="form.startDate"
-          />
+          <div class="md-inline-flex">
+            <h4>When do you want to start working on this goal?</h4>
+            <input
+              type="date"
+              id="start"
+              name="startDate"
+              :min="today"
+              v-model="form.startDate"
+            />
+          </div>
         </div>
         <div class="form-control">
-          <h4>When do you want to stop working on this goal?</h4>
-          <input
-            type="date"
-            id="until"
-            name="deadline"
-            :min="today"
-            v-model="form.deadline"
-          />
+          <div class="md-inline-flex">
+            <h4>When do you want to stop working on this goal?</h4>
+            <input
+              type="date"
+              id="until"
+              name="deadline"
+              :min="today"
+              v-model="form.deadline"
+            />
+          </div>
         </div>
       </section>
       <button>submit</button>
@@ -136,7 +145,7 @@ export default {
         noDuration: false,
         cycle: "Weekly",
         cycleDaysOfWeek: [],
-        cycleOnceMonthlyDay: "",
+        cycleOnceMonthlyDay: "Wednesday",
         cycleDayOfMonth: "First",
         deadline: this.$store.getters.currentTime
           .add(1, "month")
@@ -181,8 +190,11 @@ export default {
 
 
 <style scoped>
+h1 {
+  display: none;
+}
 .container {
-  padding: 12px 15px;
+  padding: 0 15px 12px;
 }
 .form-control {
   margin-bottom: 10px;
@@ -210,12 +222,16 @@ input[type="checkbox"] {
   transform: scale(1.75);
 }
 
+section {
+  margin-bottom: 1.5rem;
+}
 input#hours,
 input#minutes {
   width: 50px;
 }
 textarea {
   resize: none;
+  padding: 0.5rem 1rem;
 }
 input[type="number"] {
   text-align: right;
@@ -269,156 +285,29 @@ textarea:focus {
   outline: none;
   box-shadow: var(--card-box-shadow);
 }
-</style>
 
-<!-- OLD FREQ INPUT
- <div class="form-control">
-    <h3>Cycle</h3>
-    <select v-model="form.cycle">
-      <option>Daily</option>
-      <option>Weekly</option>
-      <option>Monthly</option>
-    </select>
-    <div class="daysOfWeek" v-if="form.cycle !== 'Daily'">
-      <select v-if="form.cycle === 'Monthly'" v-model="form.cycleDayOfMonth">
-        <option>First</option>
-        <option>Second</option>
-        <option>Third</option>
-        <option>Fourth</option>
-      </select>
-      <div v-if="form.cycle !== 'Monthly'" class="dow-checkboxes">
-        <input
-          type="checkbox"
-          value="Monday"
-          id="Monday"
-          v-model="form.cycleDaysOfWeek"
-        />
-        <label for="Monday">Monday</label>
-        <input
-          type="checkbox"
-          value="Tuesday"
-          id="Tuesday"
-          v-model="form.cycleDaysOfWeek"
-        />
-        <label for="Tuesday">Tuesday</label>
-        <input
-          type="checkbox"
-          value="Wednesday"
-          id="Wednesday"
-          v-model="form.cycleDaysOfWeek"
-        />
-        <label for="Wednesday">Wednesday</label>
-        <input
-          type="checkbox"
-          value="Thursday"
-          id="Thursday"
-          v-model="form.cycleDaysOfWeek"
-        />
-        <label for="Thursday">Thursday</label>
-        <input
-          type="checkbox"
-          value="Friday"
-          id="Friday"
-          v-model="form.cycleDaysOfWeek"
-        />
-        <label for="Friday">Friday</label>
-        <input
-          type="checkbox"
-          value="Saturday"
-          id="Saturday"
-          v-model="form.cycleDaysOfWeek"
-        />
-        <label for="Saturday">Saturday</label>
-        <input
-          type="checkbox"
-          value="Sunday"
-          id="Sunday"
-          v-model="form.cycleDaysOfWeek"
-        />
-        <label for="Sunday">Sunday</label>
-      </div>
-      <div v-if="form.cycle === 'Monthly'" class="dow-radio">
-        <input
-          type="radio"
-          value="Monday"
-          id="Monday"
-          v-model="form.cycleOnceMonthlyDay"
-        />
-        <label for="Monday">Monday</label>
-        <input
-          type="radio"
-          value="Tuesday"
-          id="Tuesday"
-          v-model="form.cycleOnceMonthlyDay"
-        />
-        <label for="Tuesday">Tuesday</label>
-        <input
-          type="radio"
-          value="Wednesday"
-          id="Wednesday"
-          v-model="form.cycleOnceMonthlyDay"
-        />
-        <label for="Wednesday">Wednesday</label>
-        <input
-          type="radio"
-          value="Thursday"
-          id="Thursday"
-          v-model="form.cycleOnceMonthlyDay"
-        />
-        <label for="Thursday">Thursday</label>
-        <input
-          type="radio"
-          value="Friday"
-          id="Friday"
-          v-model="form.cycleOnceMonthlyDay"
-        />
-        <label for="Friday">Friday</label>
-        <input
-          type="radio"
-          value="Saturday"
-          id="Saturday"
-          v-model="form.cycleOnceMonthlyDay"
-        />
-        <label for="Saturday">Saturday</label>
-        <input
-          type="radio"
-          value="Sunday"
-          id="Sunday"
-          v-model="form.cycleOnceMonthlyDay"
-        />
-        <label for="Sunday">Sunday</label>
-      </div>
-      <span v-if="form.cycle === 'Monthly'">-- of the Month</span>
-    </div>
-  </div>
-  -->
-<!--      
-OLD CATEOGRY INPUT 
-        <input
-          type="radio"
-          id="health"
-          value="Health"
-          v-model="form.track"
-        /><label for="health">Health</label>
-        <input
-          type="radio"
-          id="learning"
-          value="Learning"
-          v-model="form.track"
-        /><label for="learning">Learning</label>
-        <input
-          type="radio"
-          id="relationships"
-          value="Relationships"
-          v-model="form.track"
-        /><label for="relationships">Relationships</label>
-        <input
-          type="radio"
-          id="self-growth"
-          value="Self-Growth"
-          v-model="form.track"
-        /><label for="self-growth">Self-Growth</label>
-        <input type="radio" id="work" value="Wor k" v-model="form.track" /><label
-          for="work"
-          >Work</label
-        > -->
+@media screen and (min-width: 767px) {
+  h1 {
+    display: block;
+  }
+  h3 {
+    font-size: 26px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  .container {
+    width: 773px;
+    min-height: 578px;
+  }
+  .md-inline-flex {
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 1rem;
+  }
+  input[type="date"] {
+    width: 160px;
+    height: 35px;
+  }
+}
+</style>
