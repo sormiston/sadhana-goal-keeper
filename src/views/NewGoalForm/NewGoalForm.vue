@@ -26,6 +26,9 @@
             v-for="category in categories"
             :key="category.name"
             :category="category.name"
+            :color="category.color"
+            :selected="form.track"
+            @update:category="updateTrack"
           ></base-pill>
         </div>
       </section>
@@ -139,7 +142,7 @@ export default {
         description: "",
         startDate: this.$store.getters.currentTime.format("YYYY-MM-DD"),
         startTime: null,
-        noTime: false,
+        noTime: true,
         durationHours: null,
         durationMinutes: null,
         noDuration: false,
@@ -169,9 +172,11 @@ export default {
     }
   },
   methods: {
+    // DEV PURPOSES
     logForm() {
       console.log(this.form);
     },
+    //
     postForm, // see postFormHelper.js
     toggleTooltip() {
       this.tooltip = !this.tooltip;
@@ -183,6 +188,9 @@ export default {
       } else {
         this.form.cycleDaysOfWeek.push(val);
       }
+    },
+    updateTrack(val) {
+      this.form.track = val
     }
   }
 };

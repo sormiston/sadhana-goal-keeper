@@ -1,62 +1,52 @@
 <template>
-    <div :class="pillStyle" v-on:click="togglePill">{{category}}</div>
+  <div :style="styleObject" v-on:click="emitCategory">{{ category }}</div>
 </template>
 
-<style scoped>
-div {
-    padding: 3px 15px 3px 15px; 
-    border-radius: 30px; 
-    display: inline-block;
-    font-size: 12px; 
-    margin: 2px 2px 2px 2px;
-    font-weight: 600;
-    border-color: var(--pink);
-    border-style: solid;
-    border-width: 1px;
-    color: var(--pink);
-}
-
-div :hover {
-    background-color: red;
-}
-
-.pill-selected {
-    background-color: white; 
-}
-
-.pill-deselected {
-    background-color: var(--pink);
-    color: white;
-}
-
-@media screen and (min-width: 767px) {
-    div {
-        font-size: 16px; 
-    }
-}
-</style>
 
 <script>
 export default {
-    data() {
+  props: ["category", "color", "selected", "mode"],
+  emits: ["update:category"],
+  computed: {
+    styleObject() {
+      if (this.selected === this.category) {
         return {
-            selected: true,
+          "background-color": `var(${this.color})`,
+          color: "#fff"
         };
-    },
-    props: [
-        "category",
-    ],
-    computed: {
-        pillStyle() {
-            if (this.selected) return "pill-selected";
-            return "pill-deselected";
-        }
-    },
-    methods: {
-        togglePill: function() {
-            this.selected = !this.selected;
-            console.log(this.category);
-        }
+      } else {
+        return {
+          "background-color": "#fff",
+          border: `1px solid var(${this.color})`,
+          color: `var(${this.color})`
+        };
+      }
     }
-}
+  },
+  methods: {
+    emitCategory() {
+      this.$emit("update:category", this.category);
+    }
+  }
+};
 </script>
+
+
+<style scoped>
+div {
+  padding: 3px 15px 3px 15px;
+  border-radius: 30px;
+  display: inline-block;
+  font-size: 12px;
+  margin: 2px 2px 2px 2px;
+  font-weight: 600;
+  border-style: solid;
+  border-width: 1px;
+}
+
+@media screen and (min-width: 767px) {
+  div {
+    font-size: 16px;
+  }
+}
+</style>
