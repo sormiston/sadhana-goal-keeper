@@ -62,6 +62,9 @@ export default {
   methods: {
     markDone() {
       this.$store.dispatch('steps/stepDone', { goalId: this.goalId, dateTime: this.dateTime } )
+    },
+    viewStepCardGoal() {
+      console.log(this.title);
     }
   },
 };

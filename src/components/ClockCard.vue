@@ -79,6 +79,9 @@
 import Clock from './Clock.vue';
 import CircularButton from './CircularButton.vue';
 export default {
+    props: [
+        
+    ],
     components: {
         Clock,
         CircularButton
