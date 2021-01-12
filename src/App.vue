@@ -24,11 +24,12 @@
   
   --card-box-shadow: 0px 0px 6px #d8d8d8;
   
-  --breakpoint-sm: 575px;
+  --ease-out-transition: all 0.4s ease-out;
+  /* --breakpoint-sm: 575px;
   --breakpoint-md: 767px;
   --breakpoint-lg: 991px;
   --breakpoint-xl: 1999px;
-  --breakpoint-xxl: 1399px;
+  --breakpoint-xxl: 1399px; */
 }
 * {
   box-sizing: border-box;
