@@ -27,8 +27,7 @@ export default {
         );
         if (response.status < 200 || response.status >= 300)
           throw new Error(response.status);
-          
-        console.log(response.data);
+
         const steps = [];
         for (const key in response.data) {
           steps.push({
@@ -41,8 +40,25 @@ export default {
         console.error(error.message);
       }
     },
-    // stepDone(context, payload) {
-      
-    // }
+    async markDone(context, payload) {
+      const userId = context.rootGetters.userId;
+      try {
+        const response = await axios.patch(
+          `${userId}/steps/${payload.id}.json`,
+          {
+            done: true
+          }
+        );
+        console.log('markDone steps state')
+          console.log(response);
+        if (response.status < 200 || response.status >= 300)
+          throw new Error(response.status);
+        else {
+          context.dispatch('goals/updateGoalStepCount', payload.goalId, { root: true })
+        }
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
   }
 };

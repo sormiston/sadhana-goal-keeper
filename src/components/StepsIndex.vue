@@ -2,7 +2,7 @@
   <div class="container">
     <step-card
       v-for="step in steps"
-      :key="step.dateTime"
+      :key="step.id"
       :title="step.title"
       :dateTime="step.dateTime"
       :timeSpecific="step.timeSpecific"
@@ -13,6 +13,7 @@
       :track="step.track"
       :goalId="step.goalId"
       :description="step.description"
+      :id="step.id"
     >
     </step-card>
   </div>
@@ -40,10 +41,14 @@ export default {
       this.stepsLoading = true;
       await this.$store.dispatch("steps/getTodaysSteps");
       this.stepsLoading = false;
+      console.log(this.steps[0]);
     }
   },
   created() {
     this.getTodaysSteps();
+  },
+  mounted() {
+    this.$store.dispatch('goals/getUserGoals')
   }
 };
 </script>

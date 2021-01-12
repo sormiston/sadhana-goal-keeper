@@ -9,7 +9,7 @@
       <span v-if="minutesDuration">{{ minutesDurationDisplay }}</span>
     </template>
     <template #markDone>
-      <button :class="buttonConditionalStyling">{{ checkOrX }}</button>
+      <button :class="buttonConditionalStyling" @click="markDone">{{ checkOrX }}</button>
     </template>
   </base-card>
 </template>
@@ -26,7 +26,8 @@ export default {
     "status",
     "track",
     "goalId",
-    "description"
+    "description",
+    "id"
   ],
   computed: {
     hasHoursDuration() {
@@ -57,7 +58,9 @@ export default {
   },
   methods: {
     markDone() {
-      this.$store.dispatch('steps/stepDone', { goalId: this.goalId, dateTime: this.dateTime } )
+      console.log('comp method')
+      console.log(this.id)
+      this.$store.dispatch('steps/markDone', { goalId: this.goalId, id: this.id } )
     }
   },
 };
