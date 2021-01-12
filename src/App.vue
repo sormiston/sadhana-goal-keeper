@@ -79,6 +79,18 @@ p {
   padding: 0 15px 12px;
 }
 
+.page-title {
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 767px) {
+  .page-title {
+    font-size: 26px;
+  }
+}
+
 @media screen and (min-width: 767px) {
   .md-inline-flex {
      display: flex;
