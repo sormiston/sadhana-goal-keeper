@@ -8,8 +8,12 @@
 <script>
 import StepsIndex from '../components/StepsIndex.vue'
 export default {
+  emits: ['pathComponentLoaded'],
   components: {
     StepsIndex
+  },
+  mounted() {
+    this.$emit('pathComponentLoaded')
   }
 }
 </script>

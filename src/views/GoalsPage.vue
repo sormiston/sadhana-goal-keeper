@@ -16,6 +16,7 @@
 import GoalsIndex from "../components/GoalsIndex.vue";
 
 export default {
+  emits: ['pathComponentLoaded'],
   components: {
     GoalsIndex
   },
@@ -23,6 +24,9 @@ export default {
     categories() {
       return this.$store.getters.categories;
     }
+  },
+  mounted() {
+    this.$emit('pathComponentLoaded')
   }
 };
 </script>
