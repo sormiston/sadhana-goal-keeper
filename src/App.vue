@@ -9,7 +9,7 @@
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 
 :root {
   --primary: #3c3e74;
@@ -44,6 +44,12 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+  outline: none;
 }
 h1 {
   font-size: 42px;

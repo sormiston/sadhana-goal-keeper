@@ -14,6 +14,20 @@
         <div class="btn-line"></div>
       </div>
     </div>
+    <div id="mobileMenu" :class="{ hidden: !mobileMenuOpen }">
+      <router-link to="/goals"
+        ><div class="menu-item">My Goals</div>
+      </router-link>
+      <router-link to="/steps"
+        ><div class="menu-item"><p>Today's Tasks</p></div>
+      </router-link>
+      <router-link to="/dashboard"
+        ><div class="menu-item"><p>Dashboard</p></div>
+      </router-link>
+      <router-link to="/settings"
+        ><div class="menu-item"><p>Settings</p></div>
+      </router-link>
+    </div>
     <nav-bar></nav-bar>
     <section>
       <router-view />
@@ -67,6 +81,7 @@ section {
   right: 14px;
   cursor: pointer;
   transition: var(--ease-out-transition);
+  z-index: 2;
 }
 
 .btn-line {
@@ -80,7 +95,6 @@ section {
 .btn-line:nth-child(2) {
   transition: opacity 0.1s;
 }
-
 /* Rotate to X */
 .menu-button.close {
   transform: rotate(180deg);
@@ -97,6 +111,45 @@ section {
 .menu-button.close .btn-line:nth-child(3) {
   transform: rotate(315deg) translate(7px, -6px);
 }
+
+#mobileMenu {
+  position: absolute;
+  z-index: 1;
+  background-color: var(--primary);
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  transition: var(--ease-out-transition);
+}
+
+#mobileMenu.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.menu-item {
+  display: inline-block;
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+  border-width: 0 0 1px;
+  border-color: #fff;
+  border-style: solid;
+  letter-spacing: 1.75px;
+  height: 54px;
+  width: 100%;
+  vertical-align: middle;
+  padding: 14px 0;
+}
+
+.menu-item p {
+  margin: 0;
+}
+#mobileMenu a:nth-child(1) > .menu-item {
+  margin-top: 70px;
+  border-width: 1px 0;
+}
+
+
 /* // Line 3 - Rotate */
 .top-bar {
   display: flex;
