@@ -9,7 +9,7 @@
       :durational="step.durational"
       :hoursDuration="step.hoursDuration || null"
       :minutesDuration="step.minutesDuration || null"
-      :status="step.status"
+      :status="step.done"
       :track="step.track"
       :goalId="step.goalId"
       :description="step.description"
