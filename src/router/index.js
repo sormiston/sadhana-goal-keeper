@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import NewGoalForm from "../components/NewGoalForm.vue";
-import StepsIndex from "../components/StepsIndex.vue"
 import TheLayout from "../views/TheLayout.vue"
 import GoalsPage from "../views/GoalsPage.vue";
+import StepsPage from "../views/StepsPage.vue";
 
 const routes = [
   {
@@ -23,7 +23,7 @@ const routes = [
       {
         path: "steps",
         name: "steps",
-        component: StepsIndex
+        component: StepsPage
       }
     ]
   }
