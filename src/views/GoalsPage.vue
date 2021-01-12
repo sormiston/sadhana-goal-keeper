@@ -1,6 +1,9 @@
 <template>
 <div class='top-options'>
     <div class="page-title"><span>My goals</span></div>
+    <div class="search-create-row">
+        <search-bar/>
+    </div>
     <div>
         <base-pill category="all"></base-pill>
         <base-pill category="health"></base-pill>
@@ -30,10 +33,12 @@
 <script>
 import BasePill from '../components/baseUI/basePill.vue';
 import GoalsIndex from "../components/GoalsIndex.vue";
+import SearchBar from '../components/SearchBar.vue';
 export default {
     components: {
         BasePill,
         GoalsIndex,
+        SearchBar,
     },
 }
 </script>
