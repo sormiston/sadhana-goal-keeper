@@ -3,6 +3,8 @@ import NewGoalForm from "../views/NewGoalForm/NewGoalForm.vue";
 import StepsIndex from "../components/StepsIndex.vue"
 import TheLayout from "../views/TheLayout.vue"
 import GoalsPage from "../views/GoalsPage.vue";
+import Dashboard from "../views/Dashboard.vue"
+import Settings from "../views/Settings.vue"
 
 const routes = [
   {
@@ -24,6 +26,16 @@ const routes = [
         path: "steps",
         name: "steps",
         component: StepsIndex
+      },
+      {
+        path: "dashboard",
+        name: "dashboard",
+        component: Dashboard
+      },
+      {
+        path: "settings",
+        name: "settings",
+        component: Settings
       }
     ]
   }
