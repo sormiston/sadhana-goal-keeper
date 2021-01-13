@@ -25,6 +25,9 @@
     color: var(--primary);
     font-weight: bold;
 }
+.button:hover {
+    cursor: pointer;
+}
 
 </style>
 
