@@ -7,6 +7,7 @@
 
 :root {
   --primary: #3c3e74;
+  --accent: #6E34EA;
   --text-light: #7d7d7d;
   --red: #c30712;
   --green: #29c1a3;
@@ -14,6 +15,8 @@
   --blue: #5096f6;
   --jet: #333232;
   --eagle-green: #073b4c;
+  --orange: #FEAA48;
+
   --backdrop: rgba(255, 255, 255, 0.95);
   
   --card-box-shadow: 0px 0px 6px #d8d8d8;
