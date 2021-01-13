@@ -1,22 +1,20 @@
 <template>
-  <div class="container">
-    <step-card
-      v-for="step in steps"
-      :key="step.id"
-      :title="step.title"
-      :dateTime="step.dateTime"
-      :timeSpecific="step.timeSpecific"
-      :durational="step.durational"
-      :hoursDuration="step.hoursDuration || null"
-      :minutesDuration="step.minutesDuration || null"
-      :status="step.done"
-      :track="step.track"
-      :goalId="step.goalId"
-      :description="step.description"
-      :id="step.id"
-    >
-    </step-card>
-  </div>
+  <step-card
+    v-for="step in steps"
+    :key="step.id"
+    :title="step.title"
+    :dateTime="step.dateTime"
+    :timeSpecific="step.timeSpecific"
+    :durational="step.durational"
+    :hoursDuration="step.hoursDuration || null"
+    :minutesDuration="step.minutesDuration || null"
+    :status="step.done"
+    :track="step.track"
+    :goalId="step.goalId"
+    :description="step.description"
+    :id="step.id"
+  >
+  </step-card>
 </template>
 
 
@@ -48,7 +46,7 @@ export default {
     this.getTodaysSteps();
   },
   mounted() {
-    this.$store.dispatch('goals/getUserGoals')
+    this.$store.dispatch("goals/getUserGoals");
   }
 };
 </script>

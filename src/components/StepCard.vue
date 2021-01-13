@@ -1,19 +1,21 @@
 <template>
-  <base-card :title="title">
-    <template #default>
-      <p>{{ description }}</p>
-    </template>
-    <template v-if="durational" #icons>
-      <span class="goal-info-icon"><alarm/></span>
-      <span v-if="hoursDuration">{{ hoursDurationDisplay }}</span>
-      <span v-if="minutesDuration">{{ minutesDurationDisplay }}</span>
-    </template>
-    <template #markDone>
-      <button :class="buttonConditionalStyling" @click="markDone">
-        {{ checkOrX }}
-      </button>
-    </template>
-  </base-card>
+  <div class="wrapper">
+    <base-card :title="title">
+      <template #default>
+        <p>{{ description }}</p>
+      </template>
+      <template v-if="durational" #icons>
+        <span class="goal-info-icon"><alarm/></span>
+        <span v-if="hoursDuration">{{ hoursDurationDisplay }}</span>
+        <span v-if="minutesDuration">{{ minutesDurationDisplay }}</span>
+      </template>
+      <template #markDone>
+        <button :class="buttonConditionalStyling" @click="markDone">
+          {{ checkOrX }}
+        </button>
+      </template>
+    </base-card>
+  </div>
 </template>
 
 <script>
@@ -91,13 +93,26 @@ button {
   min-width: 77px;
   border-radius: inherit;
   font-size: 2rem;
+  cursor: pointer;
 }
-
+p {
+  margin: 0;
+}
 .button--notDone {
   color: var(--red);
 }
 
 .button--done {
   color: var(--green);
+}
+.wrapper {
+  flex-shrink: 0;
+}
+@media screen and (min-width: 992px) {
+.wrapper {
+  height: 106px;
+  width: 346px;
+  margin-right: 1rem;
+}
 }
 </style>

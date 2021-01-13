@@ -1,5 +1,6 @@
 <template>
     <div class="clock">
+        <Knob/>
         <div class="timer-text-box">
             <div class="timer-time-text">{{timer}}</div>
             <div class="ellapsed-label">ellapsed</div>
@@ -27,7 +28,11 @@
 </style>
 
 <script>
+import Knob from 'primevue/knob';
 export default {
+    components: {
+        Knob
+    },
     computed: {
         timer() {
             return "00:44:32";

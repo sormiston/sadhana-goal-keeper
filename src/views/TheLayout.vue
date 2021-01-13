@@ -186,7 +186,7 @@ nav-bar {
     margin-left: 75px;
     border-top-left-radius: 50px;
     padding-top: 40px;
-    padding-left: 74px;
+    padding-left: 40px;
   }
 
   .app-title {
