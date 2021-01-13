@@ -111,10 +111,10 @@ export default {
             return "Complete today's Jira tickets, and allocate tasks for tomorrow"
         },
         hoursDuration() {
-            return 1;
+            return 0;
         },
         minutesDuration() {
-            return 0;
+            return 1;
         },
         durationInMinutes() {
             const minutesInHour = 60;

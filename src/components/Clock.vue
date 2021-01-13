@@ -68,7 +68,7 @@ export default {
             let minutes = parseInt(this.timer.substring(0,2));
             let seconds = parseInt(this.timer.substring(3));
             let timeInSeconds = seconds + minutes * secondsInMinute;
-            return timeInSeconds / totalTimeInSeconds * 100;
+            return Math.min(timeInSeconds / totalTimeInSeconds * 100, 100);
         }
     },
     methods:{
