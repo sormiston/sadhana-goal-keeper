@@ -107,8 +107,9 @@ p {
 }
 .wrapper {
   flex-shrink: 0;
+  margin: 0 auto;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1080px) {
 .wrapper {
   height: 106px;
   width: 346px;

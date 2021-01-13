@@ -32,16 +32,6 @@
                 </div>
             </div>
         </div>
-        <div>
-          <div>
-            <span>Repeats: </span>
-            <span>{{ goalCycle }}</span>
-          </div>
-          <div>
-            <span>Category: </span>
-            <span>{{ this.track }}</span>
-          </div>
-        </div>
     </template>
 
     <template #progressBar>

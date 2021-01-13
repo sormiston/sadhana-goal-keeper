@@ -2,9 +2,9 @@
   <div class="container">
     <div class="page-title"><span>Today's Tasks</span></div>
     <div class="flex">
-      <!-- <div class="index-container"> -->
+      <div class="index-container">
        <steps-index></steps-index>
-      <!-- </div> -->
+      </div>
       <clock-card></clock-card>
   </div>
   </div>
@@ -30,12 +30,16 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+.index-container {
+  width: 100%;
+  margin-right: 35px;
+}
 .detail-container {
   display: none;
   flex-basis: 792px;
   height: 756px;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1080px) {
   .index-container {
     max-width: 346px;
   }
