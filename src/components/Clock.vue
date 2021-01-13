@@ -7,7 +7,6 @@
             valueColor="#18C2A3"
             rangeColor="#DADADA"
             :size="375"
-            :max="60"
             textColor="black"
             :showValue=false 
             :readOnly=false
@@ -61,7 +60,12 @@ export default {
     },
     computed: {
         percentage() {
-            return this.timer.substring(3);
+            let totalTimeInMinutes = 3600; /* 1 hour */
+            let minutesInHour = 60;
+            let hours = parseInt(this.timer.substring(0,2));
+            let minutes = parseInt(this.timer.substring(3));
+            let timeInMinutes = minutes + hours * minutesInHour;
+            return timeInMinutes / totalTimeInMinutes * 100;
         }
     },
     methods:{
