@@ -16,7 +16,7 @@
     <div class="clock-container">
         <clock :timer="clockDisplay" :duration="durationInMinutes"/>
         <div class='button-row'>
-            <circular-button type="play" v-on:click="pressPlay"/>
+            <circular-button :type="pauseOrPlayButton" v-on:click="pressPlayPause"/>
             <circular-button type="stop" v-on:click="pressStop"/>
         </div>
     </div>
@@ -115,6 +115,10 @@ export default {
         durationInMinutes() {
             const minutesInHour = 60;
             return this.hoursDuration * minutesInHour + this.minutesDuration;
+        },
+        pauseOrPlayButton() {
+            if (this.timeStarted == null) return "play";
+            return "pause";
         }
     },
     methods: {
@@ -126,7 +130,7 @@ export default {
             this.clockDisplay = this.formatClockDisplay();
             setInterval(this.time, millisecondsInSecond);
         },
-        pressPlay() {
+        pressPlayPause() {
             this.timeStarted = dayjs();
         },
         pressStop() {
