@@ -9,6 +9,7 @@
 .search-bar {
   padding-top: 4px;
 }
+
 .icon {
   position: relative;
   left: 28px;
