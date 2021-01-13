@@ -34,7 +34,7 @@
         background-color: white;
         width: 100%;
         height: 80vh;
-        margin-right: 118px;
+        margin-right: 30px;
         box-shadow: 10px 10px 40px rgba(216, 216, 216, 0.25);
         border-radius: 15px;
         padding: 2% 1% 1% 3%;

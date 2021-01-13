@@ -1,60 +1,62 @@
 <template>
-  <div class="card">
+<div class="card">
     <div class="flex-left">
-      <header v-if="title">
-        <h3>{{ title }}</h3>
-      </header>
-      <slot></slot>
-      <div v-if="$slots.icons" class="icons">
-        <slot name="icons"></slot>
-      </div>
-      <div v-if="$slots.progressBar" class="progress-bar">
-        <slot name="progressBar"></slot>
-      </div>
+        <div class="flex-top">
+            <header v-if="title">
+                <h3>{{ title }}</h3>
+            </header>
+            <slot></slot>
+            <div v-if="$slots.icons" class="icons">
+                <slot name="icons"></slot>
+            </div>
+        </div>
+        <div class="flex-bottom">
+            <div v-if="$slots.progressBar" class="progress-bar">
+                <slot name="progressBar"></slot>
+            </div>
+        </div>
     </div>
     <div v-if="$slots.markDone" class="flex-right">
-      <slot name="markDone"></slot>
+        <slot name="markDone"></slot>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
 export default {
-  props: ["title"]
+    props: ["title"]
 };
 </script>
 
 <style scoped>
-
-
 .flex-left {
-  padding: .5rem 1rem;
-  width: 100%; 
+    padding: .5rem 1rem;
+    width: 100%;
 }
 
 .flex-right {
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 .progress-bar {
-  margin: 10px 0; 
-  height: 5px;
+    position: relative;
+    bottom: 0px;
+    margin: 10px 0;
+    height: 5px;
 }
 
 header {
-  text-align: left;
+    text-align: left;
 }
 
 .icons {
-  color: var(--text-light);
+    color: var(--text-light);
 }
+
 h3 {
-  font-size: 16px;
+    font-size: 16px;
 }
 
-@media screen and (min-width: 767px) {
-}
-
-
+@media screen and (min-width: 767px) {}
 </style>
