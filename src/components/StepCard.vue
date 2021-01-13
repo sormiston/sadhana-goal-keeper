@@ -4,7 +4,7 @@
       <p>{{ description }}</p>
     </template>
     <template v-if="durational" #icons>
-      <span>@</span>
+      <span class="goal-info-icon"><alarm/></span>
       <span v-if="hoursDuration">{{ hoursDurationDisplay }}</span>
       <span v-if="minutesDuration">{{ minutesDurationDisplay }}</span>
     </template>
@@ -17,7 +17,11 @@
 </template>
 
 <script>
+import { Alarm } from 'mdue';
 export default {
+  components: {
+    Alarm
+  },
   props: [
     "title",
     "dateTime",

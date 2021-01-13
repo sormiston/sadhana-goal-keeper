@@ -87,6 +87,7 @@ section {
   z-index: 2;
   height: 38px;
   padding: 8px;
+
 }
 
 .btn-line {
@@ -112,7 +113,15 @@ section {
 .menu-button.close .btn-line:nth-child(2) {
   opacity: 0;
 }
-
+/* // Line 3 - Rotate */
+.top-bar {
+  display: flex;
+  padding-left: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  height: 70px;
+}
 .menu-button.close .btn-line:nth-child(3) {
   transform: rotate(315deg) translate(7px, -6px);
 }
@@ -159,18 +168,9 @@ section {
   border-width: 1px 0;
 }
 
-/* // Line 3 - Rotate */
-.top-bar {
-  display: flex;
-  padding-left: 14px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  color: white;
-  height: 70px;
-}
-
 .menu-button :hover {
-  font-weight: bold;
+    font-weight: bold;
+    font-size: 22px;
 }
 
 .top-bar div {
@@ -202,4 +202,13 @@ nav-bar {
   }
 }
 </style>
+
+<script>
+import NavBar from '../components/NavBar.vue';
+export default {
+  components: {
+    NavBar,
+  },
+}
+</script>
 

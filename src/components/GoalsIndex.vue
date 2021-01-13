@@ -42,6 +42,12 @@
   </goal-card>
 </template>
 
+<style scoped>
+@media screen and (min-width: 767px) {
+  
+}
+</style>
+
 <script>
 import GoalCard from "./GoalCard.vue";
 import BasePill from "../components/baseUI/basePill.vue";
