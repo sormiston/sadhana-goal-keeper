@@ -14,9 +14,9 @@
         </div>
     </div>
     <div class="clock-container">
-        <clock :timer="datenow" />
+        <clock :timer="clockDisplay" />
         <div class='button-row'>
-            <circular-button type="play" />
+            <circular-button type="play" v-on:click="pressPlay"/>
             <circular-button type="stop" />
         </div>
     </div>
@@ -90,9 +90,9 @@ import dayjs from 'dayjs';
 export default {
     data() {
         return {
-            timeEllapsed: 0,
-            interval: null,
-            datenow: '',
+            clockDisplay: '',
+            timeStarted: null,
+            secondsEllapsed: '',
         };
     },
     components: {
@@ -114,14 +114,23 @@ export default {
         },
     },
     methods: {
-        timer() {
-            this.timeEllapsed++;
-        },
         time() {
-            var self = this
-            this.datenow = dayjs().format('mm:ss')
-            setInterval(self.time, 1000)
+            let dateNow = dayjs();
+            this.secondsEllapsed = Math.floor(parseInt(dateNow.diff(this.timeStarted), 'second') / 1000);
+            this.clockDisplay = this.formatClockDisplay();
+            setInterval(this.time, 1000);
         },
+        pressPlay() {
+            this.timeStarted = dayjs();
+            console.log(this.timeStarted.format('mm:ss'));
+        },
+        formatClockDisplay() {
+            const minutesInHour = 60;
+            const zeroPad = (num, places) => String(num).padStart(places, '0');
+            let minutes = Math.floor(this.secondsEllapsed / minutesInHour);
+            let seconds = this.secondsEllapsed - minutes * minutesInHour;
+            return zeroPad(minutes, 2) + ':' + zeroPad(seconds, 2);
+        }
     },
     ready: function () {
         this.timer();
