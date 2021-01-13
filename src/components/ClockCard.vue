@@ -92,7 +92,7 @@ export default {
         return {
             clockDisplay: '',
             timeStarted: null,
-            secondsEllapsed: '',
+            secondsEllapsed: 0,
         };
     },
     components: {
@@ -119,10 +119,12 @@ export default {
     },
     methods: {
         time() {
+            const millisecondsInSecond = 1000;
             let dateNow = dayjs();
-            this.secondsEllapsed = Math.floor(parseInt(dateNow.diff(this.timeStarted), 'second') / 1000);
+            this.secondsEllapsed = Math.floor(parseInt(dateNow.diff(this.timeStarted), 'second') / millisecondsInSecond);
+            if (this.timeStarted == null) this.secondsEllapsed = 0;
             this.clockDisplay = this.formatClockDisplay();
-            setInterval(this.time, 1000);
+            setInterval(this.time, millisecondsInSecond);
         },
         pressPlay() {
             this.timeStarted = dayjs();
