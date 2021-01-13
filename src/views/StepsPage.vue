@@ -12,7 +12,7 @@ import ClockCard from "../components/ClockCard.vue";
 export default {
   emits: ['pathComponentLoaded'],
   components: {
-    StepsIndex
+    StepsIndex,
     ClockCard
   },
   mounted() {
