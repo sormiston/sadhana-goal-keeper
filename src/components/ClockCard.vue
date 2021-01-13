@@ -91,8 +91,12 @@ export default {
     data() {
         return {
             clockDisplay: '',
+            pauseOrPlayButton: "play",
             timeStarted: null,
             secondsEllapsed: 0,
+            pausedSecondsEllapsed: null,
+            timePaused: null,
+            secondsPaused: 0,
         };
     },
     components: {
@@ -116,10 +120,6 @@ export default {
             const minutesInHour = 60;
             return this.hoursDuration * minutesInHour + this.minutesDuration;
         },
-        pauseOrPlayButton() {
-            if (this.timeStarted == null) return "play";
-            return "pause";
-        }
     },
     methods: {
         time() {
@@ -131,16 +131,34 @@ export default {
             setInterval(this.time, millisecondsInSecond);
         },
         pressPlayPause() {
-            this.timeStarted = dayjs();
+            if (this.pauseOrPlayButton == 'play') {
+                if (this.timeStarted == null) {
+                    this.timeStarted = dayjs();
+                }
+                this.pauseOrPlayButton = 'pause';
+            } else {
+                this.pausedSecondsEllapsed = this.secondsEllapsed;
+                this.timePaused = dayjs();
+                this.pauseOrPlayButton = 'play';
+            }
+            
         },
         pressStop() {
             this.timeStarted = null;
+            this.pauseOrPlayButton = 'play';
         },
         formatClockDisplay() {
             const minutesInHour = 60;
             const zeroPad = (num, places) => String(num).padStart(places, '0');
-            let minutes = Math.floor(this.secondsEllapsed / minutesInHour);
-            let seconds = this.secondsEllapsed - minutes * minutesInHour;
+            var minutes = 0;
+            var seconds = 0;
+            if (this.pauseOrPlayButton == 'pause') {
+                minutes = Math.floor(this.secondsEllapsed / minutesInHour);
+                seconds = this.secondsEllapsed - minutes * minutesInHour;
+            } else {
+                minutes = Math.floor(this.pausedSecondsEllapsed / minutesInHour);
+                seconds = this.pausedSecondsEllapsed - minutes * minutesInHour;
+            }
             return zeroPad(minutes, 2) + ':' + zeroPad(seconds, 2);
         },
     },
