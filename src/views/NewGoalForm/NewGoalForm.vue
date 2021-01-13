@@ -2,7 +2,7 @@
   <h1>Create Goal</h1>
   <div class="container">
     <!-- REMEMBER TO CHANGE LOGFORM TO POSTFORM!!! -->
-    <form @submit.prevent="logForm">
+    <form @submit.prevent="postForm">
       <section>
         <h3>🎉 What would you like to accomplish? Be specific.</h3>
         <div class="form-control">
@@ -131,6 +131,7 @@ import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
 
 export default {
+  emits: ['pathComponentLoaded'],
   components: {
     FrequencySelector
   },
@@ -192,6 +193,9 @@ export default {
     updateTrack(val) {
       this.form.track = val
     }
+  },
+  mounted() {
+    this.$emit("pathComponentLoaded");
   }
 };
 </script>
@@ -278,6 +282,7 @@ button {
   border-radius: 30px;
   width: 100%;
   padding: 4px 0;
+  cursor: pointer;
 }
 
 button:hover,
