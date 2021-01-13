@@ -41,6 +41,7 @@
 }
 .ellapsed-label {
     font-size: 16px;
+    color: var(--primary);
 }
 </style>
 

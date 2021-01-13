@@ -131,17 +131,19 @@ export default {
             setInterval(this.time, millisecondsInSecond);
         },
         pressPlayPause() {
-            if (this.pauseOrPlayButton == 'play') {
-                if (this.timeStarted == null) {
-                    this.timeStarted = dayjs();
-                }
-                this.pauseOrPlayButton = 'pause';
-            } else {
-                this.pausedSecondsEllapsed = this.secondsEllapsed;
-                this.timePaused = dayjs();
-                this.pauseOrPlayButton = 'play';
+            if (this.pauseOrPlayButton == 'play') this.pressPlay();
+            else this.pressPause();
+        },
+        pressPlay() {
+            if (this.timeStarted == null) {
+                this.timeStarted = dayjs();
             }
-            
+            this.pauseOrPlayButton = 'pause';
+        },
+        pressPause() {
+            this.pausedSecondsEllapsed = this.secondsEllapsed;
+            this.timePaused = dayjs();
+            this.pauseOrPlayButton = 'play';
         },
         pressStop() {
             this.timeStarted = null;
