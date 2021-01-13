@@ -123,7 +123,6 @@ import {
 export default {
     data() {
         return {
-            navSelection: "goals"
         };
     },
     components: {
@@ -132,16 +131,19 @@ export default {
         Clipboard
     },
     computed: {
+        navSelection() {
+            return this.$route.name;
+        },
         dashboardNavStatus() {
             if (this.navSelection == "dashboard") return "selected";
             return "deselected";
         },
         todayNavStatus() {
-            if (this.navSelection == "today") return "selected";
+            if (this.navSelection == "steps") return "selected";
             return "deselected";
         },
         goalsNavStatus() {
-            if (this.navSelection == "goals") return "selected";
+            if (this.navSelection == "GoalsPage") return "selected";
             return "deselected";
         },
         dashboardNavIconStatus() {
@@ -149,25 +151,23 @@ export default {
             return "nav-icon-deselected";
         },
         todayNavIconStatus() {
-            if (this.navSelection == "today") return "nav-icon-selected";
+            if (this.navSelection == "steps") return "nav-icon-selected";
             return "nav-icon-deselected";
         },
         goalsNavIconStatus() {
-            if (this.navSelection == "goals") return "nav-icon-selected";
+            if (this.navSelection == "GoalsPage") return "nav-icon-selected";
             return "nav-icon-deselected";
         }
     },
     methods: {
         selectDashboard: function () {
-            this.navSelection = "dashboard";
             router.push('dashboard');
         },
-        selectToday: function () {
-            this.navSelection = "today";
-            router.push("steps");
+        selectToday: async function () {
+            await router.push("steps");
+            this.$router.go();
         },
         selectGoals: function () {
-            this.navSelection = "goals";
             router.push("goals");
         }
     }

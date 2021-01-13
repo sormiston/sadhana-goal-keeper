@@ -10,7 +10,7 @@ import Settings from "../views/Settings.vue"
 const routes = [
   {
     path: "/",
-    redirect: "/goals",
+    redirect: "/steps",
     component: TheLayout,
     children: [
       {
