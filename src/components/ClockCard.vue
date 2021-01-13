@@ -147,6 +147,7 @@ export default {
         },
         pressStop() {
             this.timeStarted = null;
+            this.pausedSecondsEllapsed = 0;
             this.pauseOrPlayButton = 'play';
         },
         formatClockDisplay() {
