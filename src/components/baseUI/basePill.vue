@@ -1,19 +1,19 @@
 <template>
-  <div :style="styleObject" v-on:click="emitCategory">{{ category }}</div>
+  <div :style="styleObject" v-on:click="emitTrack">{{ track }}</div>
 </template>
 
 
 <script>
 export default {
   props: {
-    category: String,
+    track: String,
     color: String,
     selected: [String, Array],
   },
-  emits: ["update:category"],
+  emits: ["update:track"],
   computed: {
     styleObject() {
-      if (this.selected === this.category || this.selected.includes(this.category)) {
+      if (this.selected === this.track || this.selected.includes(this.track)) {
         return {
           "background-color": `var(${this.color})`,
           color: "#fff"
@@ -28,8 +28,8 @@ export default {
     }
   },
   methods: {
-    emitCategory() {
-      this.$emit("update:category", this.category);
+    emitTrack() {
+      this.$emit("update:track", this.track);
     }
   }
 };
