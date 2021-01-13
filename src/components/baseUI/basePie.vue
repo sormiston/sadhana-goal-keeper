@@ -1,18 +1,27 @@
 <template>
-  <Chart
-    type="pie"
-    :data="chartData"
-    :options="options"
-    :width="width"
-    :height="height"
-    ref="chart"
-  />
-  <small>{{ dateTime }}</small>
+  <div class="pie-chart-wrapper">
+    <Chart
+      type="pie"
+      :data="chartData"
+      :options="options"
+      :width="width"
+      :height="height"
+      ref="chart"
+    />
+  </div>
+
 </template>
 
 <script>
 import Chart from "primevue/chart";
 export default {
+  props: {
+    chartData: {
+      type: Object,
+      required: true
+    },
+  
+  },
   data() {
     return {
       width: 50,
@@ -25,20 +34,10 @@ export default {
           tooltips: {
             enabled: false
           }
-        
       }
     };
   },
-  props: {
-    chartData: {
-      type: Object,
-      required: true
-    },
-    dateTime: {
-      type: null,
-      required: false
-    }
-  },
+
   components: {
     Chart
   },
@@ -47,5 +46,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.pie-chart-wrapper {
+  margin: 0 auto;
+}
+</style>
 
 
