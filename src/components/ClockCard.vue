@@ -17,7 +17,7 @@
         <clock :timer="clockDisplay" :duration="durationInMinutes"/>
         <div class='button-row'>
             <circular-button type="play" v-on:click="pressPlay"/>
-            <circular-button type="stop" />
+            <circular-button type="stop" v-on:click="pressStop"/>
         </div>
     </div>
 </div>
@@ -128,6 +128,9 @@ export default {
         },
         pressPlay() {
             this.timeStarted = dayjs();
+        },
+        pressStop() {
+            this.timeStarted = null;
         },
         formatClockDisplay() {
             const minutesInHour = 60;
