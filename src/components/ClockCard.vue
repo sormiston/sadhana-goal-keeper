@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="clock-container">
-        <clock :timer="clockDisplay" />
+        <clock :timer="clockDisplay" :duration="durationInMinutes"/>
         <div class='button-row'>
             <circular-button type="play" v-on:click="pressPlay"/>
             <circular-button type="stop" />
@@ -107,11 +107,15 @@ export default {
             return "Complete today's Jira tickets, and allocate tasks for tomorrow"
         },
         hoursDuration() {
-            return 2;
+            return 1;
         },
         minutesDuration() {
             return 0;
         },
+        durationInMinutes() {
+            const minutesInHour = 60;
+            return this.hoursDuration * minutesInHour + this.minutesDuration;
+        }
     },
     methods: {
         time() {
@@ -122,7 +126,6 @@ export default {
         },
         pressPlay() {
             this.timeStarted = dayjs();
-            console.log(this.timeStarted.format('mm:ss'));
         },
         formatClockDisplay() {
             const minutesInHour = 60;
@@ -130,7 +133,7 @@ export default {
             let minutes = Math.floor(this.secondsEllapsed / minutesInHour);
             let seconds = this.secondsEllapsed - minutes * minutesInHour;
             return zeroPad(minutes, 2) + ':' + zeroPad(seconds, 2);
-        }
+        },
     },
     ready: function () {
         this.timer();

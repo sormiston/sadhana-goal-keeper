@@ -2,7 +2,7 @@
     <div class="clock">
         <Knob 
             v-model="percentage" 
-            strokeWidth="1" 
+            strokeWidth=1
             :valueTemplate="timer"
             valueColor="#18C2A3"
             rangeColor="#DADADA"
@@ -53,19 +53,21 @@ export default {
       }
     },
     props: [
-        "timer"
+        "timer",
+        "duration"
     ],
     components: {
         Knob,
     },
     computed: {
         percentage() {
-            let totalTimeInMinutes = 3600; /* 1 hour */
-            let minutesInHour = 60;
-            let hours = parseInt(this.timer.substring(0,2));
-            let minutes = parseInt(this.timer.substring(3));
-            let timeInMinutes = minutes + hours * minutesInHour;
-            return timeInMinutes / totalTimeInMinutes * 100;
+            const secondsInMinute = 60;
+            let totalTimeInSeconds = this.duration * secondsInMinute; 
+            console.log(this.duration)
+            let minutes = parseInt(this.timer.substring(0,2));
+            let seconds = parseInt(this.timer.substring(3));
+            let timeInSeconds = seconds + minutes * secondsInMinute;
+            return timeInSeconds / totalTimeInSeconds * 100;
         }
     },
     methods:{
