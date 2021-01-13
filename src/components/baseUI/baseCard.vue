@@ -32,6 +32,9 @@ export default {
 .flex-left {
     padding: .5rem 1rem;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .flex-right {
