@@ -12,7 +12,7 @@ const store = createStore({
       timeLoaded: dayjs().local(),
       userId: 'x1',
       userCustomization: {
-        categories: [
+        tracks: [
           { name: 'Health', color: '--pink' },
           { name: 'Learning', color: '--green' },
           { name: "New Year's", color: '--blue' },
@@ -22,11 +22,9 @@ const store = createStore({
       }
     };
   },
-  mutations: {},
-  actions: {},
   getters: {
-    categories(state) {
-      return state.userCustomization.categories
+    tracks(state) {
+      return state.userCustomization.tracks
     },
     userId(state) {
       return state.userId

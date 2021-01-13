@@ -1,18 +1,18 @@
 <template>
   <div class="md-inline-flex">
     <base-pill
-      category="All"
+      track="All"
       color="--primary"
       :selected="passFilter"
-      @update:category="updateFilter"
+      @update:track="updateFilter"
     ></base-pill>
     <base-pill
-      v-for="category in categories"
-      :key="category.name"
-      :category="category.name"
-      :color="category.color"
+      v-for="track in tracks"
+      :key="track.name"
+      :track="track.name"
+      :color="track.color"
       :selected="passFilter"
-      @update:category="updateFilter"
+      @update:track="updateFilter"
     ></base-pill>
   </div>
   <div v-if="!goalsLoading && filteredGoals.length === 0">
@@ -63,8 +63,8 @@ export default {
     };
   },
   computed: {
-    categories() {
-      return this.$store.getters.categories;
+    tracks() {
+      return this.$store.getters.tracks;
     },
     filteredGoals() {
       // filter logic TODO - return all for now
@@ -81,14 +81,14 @@ export default {
       this.goalsLoading = false;
       console.log(this.$store.getters["goals/goals"][0]);
     },
-    updateFilter(category) {
-      if (category === "All") this.passFilter = "All";
+    updateFilter(track) {
+      if (track === "All") this.passFilter = "All";
       else if (this.passFilter === "All") {
-        this.passFilter = [category];
-      } else if (!this.passFilter.includes(category)) {
-        this.passFilter.push(category);
+        this.passFilter = [track];
+      } else if (!this.passFilter.includes(track)) {
+        this.passFilter.push(track);
       } else {
-        const idx = this.passFilter.indexOf(category);
+        const idx = this.passFilter.indexOf(track);
         this.passFilter.splice(idx, 1);
         if (this.passFilter.length === 0)
           setTimeout(() => (this.passFilter = "All"), 750);

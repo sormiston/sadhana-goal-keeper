@@ -98,6 +98,7 @@ export default {
   ],
 
   computed: {
+    
     goalTotalMonths() {
       const startDate = dayjs(String(this.startDate));
       const endDate = dayjs(String(this.endDate));
