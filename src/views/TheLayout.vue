@@ -57,7 +57,6 @@ export default {
 };
 </script>
 
-
 <style scoped>
 main {
   position: absolute;
@@ -66,13 +65,13 @@ main {
   right: 0;
   left: 0;
   background-color: var(--primary);
+  overflow: hidden;
 }
 
 section {
   background-color: var(--backdrop);
-  min-height: calc(100vh - 26px - 30px);
+  height: 100%;
   padding-top: 10px;
-  overflow: hidden;
 }
 
 .app-title {
