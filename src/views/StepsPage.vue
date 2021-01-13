@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="page-title"><span>Today's Tasks</span></div>
-    <div class="flex container">
+    <div class="flex">
       <!-- <div class="index-container"> -->
        <steps-index></steps-index>
       <!-- </div> -->
