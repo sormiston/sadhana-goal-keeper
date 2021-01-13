@@ -87,10 +87,23 @@ p {
   margin-bottom: 5px;
 }
 
+.card {
+  background-color: #fff;
+  margin: 0.5rem 0;
+  border-radius: 12px;
+  box-shadow: 0px 0px 6px #d8d8d8;
+  font-size: 0.75rem;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
 @media screen and (min-width: 767px) {
   .page-title {
     font-size: 26px;
+    color: #000;
   }
+  
 }
 
 @media screen and (min-width: 767px) {
@@ -98,6 +111,12 @@ p {
      display: flex;
      justify-content: space-between;
      margin-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  h3 {
+    font-size: 1rem;
   }
 }
 </style>

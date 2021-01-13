@@ -91,13 +91,23 @@ button {
   min-width: 77px;
   border-radius: inherit;
   font-size: 2rem;
+  cursor: pointer;
 }
-
+p {
+  margin: 0;
+}
 .button--notDone {
   color: var(--red);
 }
 
 .button--done {
   color: var(--green);
+}
+
+@media screen and (min-width: 992px) {
+.wrapper {
+  height: 106px;
+  width: 346px;
+}
 }
 </style>

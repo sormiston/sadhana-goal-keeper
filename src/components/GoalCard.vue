@@ -1,7 +1,7 @@
 <template>
-<base-card :title="title">
+  <base-card :title="title">
     <template #default>
-        <p>{{ description }}</p>
+      <p>{{ description }}</p>
     </template>
     <template #icons>
         <div class="goal-time-info">
@@ -32,11 +32,26 @@
                 </div>
             </div>
         </div>
+        <div>
+          <div>
+            <span>Repeats: </span>
+            <span>{{ goalCycle }}</span>
+          </div>
+          <div>
+            <span>Category: </span>
+            <span>{{ this.track }}</span>
+          </div>
+        </div>
     </template>
+
     <template #progressBar>
-        <progress-bar :track="this.track" :totalSteps="this.totalSteps" :stepsComplete="this.stepsCompleted"></progress-bar>
+      <progress-bar
+        :track="this.track"
+        :totalSteps="this.totalSteps"
+        :stepsComplete="this.stepsCompleted"
+      ></progress-bar>
     </template>
-</base-card>
+  </base-card>
 </template>
 
 <style>
@@ -62,7 +77,7 @@
 </style>
 
 <script>
-import ProgressBar from './ProgressBar.vue';
+import ProgressBar from "./ProgressBar.vue";
 import dayjs from "dayjs";
 import {
     Alarm,
@@ -130,5 +145,5 @@ export default {
             return cycle;
         }
     }
-};
+  }
 </script>

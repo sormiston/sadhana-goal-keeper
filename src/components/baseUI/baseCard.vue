@@ -25,18 +25,10 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  background-color: #fff;
-  margin: 0.5rem 0;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  box-shadow: 0px 0px 6px #d8d8d8;
-  display: flex;
-  
-}
+
 
 .flex-left {
-  padding: 1rem;
+  padding: .5rem 1rem;
   width: 100%; 
 }
 
@@ -46,7 +38,7 @@ export default {
 }
 
 .progress-bar {
-  margin-top: 10px; 
+  margin: 10px 0; 
   height: 5px;
 }
 
@@ -57,4 +49,6 @@ header {
 .icons {
   color: var(--text-light);
 }
+
+
 </style>
