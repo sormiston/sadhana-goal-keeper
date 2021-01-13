@@ -1,6 +1,17 @@
 <template>
     <div class="clock">
-        <Knob/>
+        <Knob 
+            v-model="percentage" 
+            strokeWidth="1" 
+            :valueTemplate="timer"
+            valueColor="#18C2A3"
+            rangeColor="#DADADA"
+            :size="375"
+            :max="60"
+            textColor="black"
+            :showValue=false 
+            :readOnly=false
+            :change="onChange"/>
         <div class="timer-text-box">
             <div class="timer-time-text">{{timer}}</div>
             <div class="ellapsed-label">ellapsed</div>
@@ -20,23 +31,43 @@
 .timer-text-box {
     padding-top: 140px;
     text-align: center;
+    margin-top: -390px;
 }
 .timer-time-text {
-    font-size: 42px;
+    font-size: 64px;
     font-weight: bold;
+}
+.p-knob {
+    font-weight: bold;
+}
+.ellapsed-label {
+    font-size: 16px;
 }
 </style>
 
 <script>
 import Knob from 'primevue/knob';
 export default {
+    data(){
+      return{
+
+      }
+    },
+    props: [
+        "timer"
+    ],
     components: {
-        Knob
+        Knob,
     },
     computed: {
-        timer() {
-            return "00:44:32";
+        percentage() {
+            return this.timer.substring(3);
         }
+    },
+    methods:{
+        onChange(value) {
+            console.log(value);
+        } 
     }
 }
 </script>
