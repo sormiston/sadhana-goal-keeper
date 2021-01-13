@@ -10,7 +10,7 @@
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 
 :root {
   --primary: #3c3e74;
@@ -25,11 +25,12 @@
   
   --card-box-shadow: 0px 0px 6px #d8d8d8;
   
-  --breakpoint-sm: 575px;
+  --ease-out-transition: all 0.4s ease-out;
+  /* --breakpoint-sm: 575px;
   --breakpoint-md: 767px;
   --breakpoint-lg: 991px;
   --breakpoint-xl: 1999px;
-  --breakpoint-xxl: 1399px;
+  --breakpoint-xxl: 1399px; */
 }
 * {
   box-sizing: border-box;
@@ -45,6 +46,12 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+  outline: none;
 }
 h1 {
   font-size: 42px;
@@ -72,6 +79,18 @@ p {
 
 .container {
   padding: 0 15px 12px;
+}
+
+.page-title {
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 767px) {
+  .page-title {
+    font-size: 26px;
+  }
 }
 
 @media screen and (min-width: 767px) {

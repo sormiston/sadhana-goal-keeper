@@ -4,6 +4,8 @@ import TheLayout from "../views/TheLayout.vue"
 import GoalsPage from "../views/GoalsPage.vue";
 import StepsPage from "../views/StepsPage.vue";
 import DashboardPage from "../views/DashboardPage.vue";
+import Settings from "../views/Settings.vue"
+
 
 const routes = [
   {
@@ -30,6 +32,11 @@ const routes = [
         path: "dashboard",
         name: "dashboard",
         component: DashboardPage
+      },
+      {
+        path: "settings",
+        name: "settings",
+        component: Settings
       }
     ]
   }

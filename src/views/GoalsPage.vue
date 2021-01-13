@@ -36,6 +36,7 @@
         justify-content: space-between;
     }
 }
+
 </style>
 
 <script>
@@ -43,15 +44,19 @@ import GoalsIndex from "../components/GoalsIndex.vue";
 import SearchBar from '../components/SearchBar.vue';
 import CreateGoalButton from "../components/CreateGoalButton.vue";
 export default {
-    components: {
+  emits: ['pathComponentLoaded'],
+ components: {
         GoalsIndex,
         SearchBar,
         CreateGoalButton
     },
-    computed: {
-        categories() {
-            return this.$store.getters.categories;
-        }
+  computed: {
+    categories() {
+      return this.$store.getters.categories;
     }
+  },
+  mounted() {
+    this.$emit('pathComponentLoaded')
+  }
 };
 </script>
