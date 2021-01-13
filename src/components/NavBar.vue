@@ -163,12 +163,12 @@ export default {
         selectDashboard: function () {
             router.push('dashboard');
         },
-        selectToday: function () {
-            router.push("steps");
+        selectToday: async function () {
+            await router.push("steps");
+            this.$router.go();
         },
         selectGoals: function () {
             router.push("goals");
-            console.log(this.$route.name);
         }
     }
 };
