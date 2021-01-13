@@ -31,6 +31,7 @@ export default {
   justify-content: space-between;
 }
 .index-container {
+  width: 100%;
   margin-right: 35px;
 }
 .detail-container {
@@ -38,7 +39,7 @@ export default {
   flex-basis: 792px;
   height: 756px;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1080px) {
   .index-container {
     max-width: 346px;
   }
