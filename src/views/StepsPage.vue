@@ -1,19 +1,17 @@
 <template>
   <div class="container">
     <div class="page-title"><span>Today's Tasks</span></div>
-    <steps-index></steps-index>
-    <clock-card></clock-card>
     <div class="flex container">
-      <div class="index-container">
-        <steps-index></steps-index>
-      </div>
-      <div class="card detail-container"></div>
-    </div>
+      <!-- <div class="index-container"> -->
+       <steps-index></steps-index>
+      <!-- </div> -->
+      <clock-card></clock-card>
+  </div>
   </div>
 </template>
 
 <script>
-import StepsIndex from '../components/StepsIndex.vue'
+import StepsIndex from "../components/StepsIndex.vue";
 import ClockCard from "../components/ClockCard.vue";
 export default {
   emits: ["pathComponentLoaded"],
@@ -39,7 +37,6 @@ export default {
 }
 @media screen and (min-width: 992px) {
   .index-container {
-   
     max-width: 346px;
   }
   .detail-container {
