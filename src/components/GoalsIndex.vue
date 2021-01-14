@@ -53,7 +53,8 @@ export default {
     BasePill
   },
   props: [
-    "searchFilteredGoals"
+    "searchFilteredGoals",
+    "parentLoaded"
   ],
   data() {
     return {
@@ -67,6 +68,7 @@ export default {
     },
     filteredGoals() {
       // filter logic TODO - return all for now
+      if (!this.parentLoaded) return this.$store.getters["goals/goals"]
       const goals = this.searchFilteredGoals
       if (this.passFilter === "All") return goals;
       return goals.filter((goal) => this.passFilter.includes(goal.track));

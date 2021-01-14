@@ -30,7 +30,7 @@ export default {
           goal.description.toLowerCase().includes(this.inputText.toLowerCase())
         ))
       }
-    }
+    },
   },
 };
 </script>

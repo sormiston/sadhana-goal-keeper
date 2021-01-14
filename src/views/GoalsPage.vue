@@ -7,7 +7,7 @@
             <create-goal-button />
         </div>
     </div>
-    <goals-index :searchFilteredGoals="searchFilteredGoals"></goals-index>
+    <goals-index :searchFilteredGoals="searchFilteredGoals" :parentLoaded="loaded"></goals-index>
 </div>
 </template>
 
@@ -24,7 +24,8 @@ export default {
     },
     data() {
         return {
-            searchFilteredGoals: this.$store.getters["goals/goals"],
+            searchFilteredGoals: [],
+            loaded: false,
         }
     },
     computed: {
@@ -34,11 +35,16 @@ export default {
     },
     methods: {
         searchFilterChange(value) {
+            console.log('changed value')
             this.searchFilteredGoals = value
-        }
+            this.loaded = true
+        },
     },
     mounted() {
         this.$emit('pathComponentLoaded')
+    },
+    created() {
+        console.log(this.searchFilteredGoals)
         this.searchFilteredGoals = this.$store.getters["goals/goals"]
     }
 };
