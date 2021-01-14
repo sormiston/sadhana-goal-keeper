@@ -51,19 +51,8 @@ export default {
         CircularButton
     },
     computed: {
-        goaltitle() {
-            return "Learn VueJS";
-        },
-        subtitle() {
-            return "Complete today's Jira tickets, and allocate tasks for tomorrow"
-        },
-        goalHoursDuration() {
-            return 0;
-        },
-        goalMinutesDuration() {
-            return 1;
-        },
         durationInMinutes() {
+            if (!this.durational) return 1; 
             const minutesInHour = 60;
             return this.hoursDuration * minutesInHour + this.minutesDuration;
         },
