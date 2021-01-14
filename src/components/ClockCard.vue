@@ -68,7 +68,6 @@ export default {
             return this.hoursDuration * minutesInHour + this.minutesDuration;
         },
         showDurationEstimate() {
-            console.log(this.durational)
             return this.durational
         }
     },

@@ -40,7 +40,6 @@ export default {
     },
     methods: {
         performAction(value) {
-            console.log(value)
             this.title = value.title
             this.description = value.description
             this.hoursDuration = value.hoursDuration
