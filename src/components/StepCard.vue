@@ -99,6 +99,9 @@ export default {
   padding: 0;
   min-height: 106px;
 }
+.card:hover {
+  cursor: pointer;
+}
 button {
   height: 100%;
   background-color: rgba(216, 216, 216, 0.25);
