@@ -1,13 +1,7 @@
 <template>
   <div class="search-bar">
     <span @click="focusSearchInput" class="icon"><search></search></span>
-    <input
-      v-model="input"
-      @input="search"
-      ref="searchInput"
-      class="search-text"
-      placeholder="Search"
-    />
+    <input @input="onUpdate" v-model="inputText" ref="searchInput" class="search-text" placeholder="Search" />
   </div>
 </template>
 
@@ -16,35 +10,28 @@ import { Magnify } from "mdue";
 export default {
   data() {
     return {
-      input: "",
-      filteredGoals: []
-    };
+      inputText: ""
+    }
   },
   components: {
     search: Magnify
-    // mdbIcon
   },
   methods: {
     focusSearchInput() {
       this.$refs.searchInput.focus();
     },
-    // search() {
-    //   const goals = this.$store.getters["goals/goals"]
-    //   console.log(goals)
-    //   console.log(this.input)
-    //   this.filteredGoals = []
-    //   goals.forEach((goal) => {
-    //     if (
-    //       goal.title.includes(this.input) ||
-    //       goal.description.includes(this.input)
-    //     ) {
-    //       console.log('match at ' + goal.title)
-    //       this.filteredGoals.push(goal);
-    //     }
-    //   });
-    //   console.log(this.filteredGoals)
-    // }
-  }
+    onUpdate() {
+      const goals = this.$store.getters["goals/goals"];
+      if (this.inputText === "") {
+        this.$emit('searchChange', goals)
+      } else {
+        this.$emit('searchChange', goals.filter((goal) => 
+          goal.title.toLowerCase().includes(this.inputText.toLowerCase()) ||
+          goal.description.toLowerCase().includes(this.inputText.toLowerCase())
+        ))
+      }
+    },
+  },
 };
 </script>
 
@@ -90,4 +77,3 @@ input:focus {
   }
 }
 </style>
-

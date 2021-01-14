@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="clock-container">
-        <clock :timer="clockDisplay" :duration="durationInMinutes"/>
+        <clock :timer="clockDisplay" :duration="durationInMinutes" :durational="durational"/>
         <div class='button-row'>
             <circular-button :type="pauseOrPlayButton" v-on:click="pressPlayPause"/>
             <circular-button type="stop" v-on:click="pressStop"/>
@@ -52,7 +52,6 @@ export default {
     },
     computed: {
         durationInMinutes() {
-            if (!this.durational) return 1; 
             const minutesInHour = 60;
             return this.hoursDuration * minutesInHour + this.minutesDuration;
         },
