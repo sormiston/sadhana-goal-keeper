@@ -86,6 +86,10 @@ export default {
 </script>
 
 <style scoped>
+.card {
+  padding: 0;
+  min-height: 106px;
+}
 button {
   height: 100%;
   background-color: rgba(216, 216, 216, 0.25);
@@ -96,7 +100,7 @@ button {
   cursor: pointer;
 }
 p {
-  margin: 0;
+  margin: 0 0 1rem;;
 }
 .button--notDone {
   color: var(--red);
