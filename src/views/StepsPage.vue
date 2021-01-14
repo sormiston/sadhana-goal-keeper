@@ -43,7 +43,7 @@ export default {
             this.title = value.title
             this.description = value.description
             this.hoursDuration = value.hoursDuration
-            this.minutesDuratio = value.minutesDuration
+            this.minutesDuration = value.minutesDuration
             this.durational = value.durational
         }
     }

@@ -8,8 +8,8 @@
         <div v-if="showDurationEstimate" class="task-time-info">
             <div v-if="durational" class="time-title">Estimated time</div>
             <div class="goal-duration">
-                <span v-if="hoursDuration!=0" class="hours-duration">{{hoursDuration}} hrs</span>
-                <span v-if="minutesDuration!=0" class="minutes-duration">{{minutesDuration}} mins</span>
+                <span v-if="hoursDuration!=null&&hoursDuration!=0" class="hours-duration">{{hoursDuration}} hrs</span>
+                <span v-if="minutesDuration!=null&&minutesDuration!=0" class="minutes-duration">{{minutesDuration}} mins</span>
             </div>
         </div>
     </div>
@@ -73,6 +73,7 @@ export default {
             else this.pressPause();
         },
         pressPlay() {
+            console.log(this.minutesDuration)
             if (this.timeStarted == null) {
                 this.timeStarted = dayjs();
             }
@@ -118,7 +119,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
 .card {
     display: none;
@@ -162,8 +162,9 @@ export default {
 
     .goal-duration {
         color: var(--primary);
-        font-size: 42px;
+        font-size: 32px;
         font-weight: bold;
+        line-height: 1.0;
     }
 
     .clock-container {

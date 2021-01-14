@@ -65,7 +65,6 @@ export default {
         percentage() {
             const secondsInMinute = 60;
             let totalTimeInSeconds = this.duration * secondsInMinute; 
-            console.log(this.duration)
             let minutes = parseInt(this.timer.substring(0,2));
             let seconds = parseInt(this.timer.substring(3));
             let timeInSeconds = seconds + minutes * secondsInMinute;
