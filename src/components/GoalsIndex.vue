@@ -51,9 +51,7 @@
     flex-wrap: wrap;
   }
   
-  .goals > * {
-    margin: 0 1rem 1rem;
-  }
+  
 }
 @media screen and (min-width: 1000px) {
   .goals {
@@ -61,9 +59,7 @@
     flex-wrap: wrap;
     /* margin-right: 100px; */
   }
-    .goals > * {
-    margin: 0 1rem 1rem;
-  }
+    
 }
 </style>
 

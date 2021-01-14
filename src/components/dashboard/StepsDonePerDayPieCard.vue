@@ -1,32 +1,30 @@
 <template>
-  
-    <div class="container card">
-      <div class="calendar-grid">
-        <div class="blank"></div>
-        <div class="col-header Mon">Mon</div>
-        <div class="col-header Tue">Tue</div>
-        <div class="col-header Wed">Wed</div>
-        <div class="col-header Thu">Thu</div>
-        <div class="col-header Fri">Fri</div>
-        <div class="col-header Sat">Sat</div>
-        <div class="col-header Sun">Sun</div>
-        <div class="row-header row-header-1">This Week</div>
-        <div class="row-header row-header-2">Last Week</div>
-        <!-- <div class="row-header row-header-3">2 Weeks Ago</div>
+  <div class="container card">
+    <div class="calendar-grid">
+      <div class="blank"></div>
+      <div class="col-header Mon">Mon</div>
+      <div class="col-header Tue">Tue</div>
+      <div class="col-header Wed">Wed</div>
+      <div class="col-header Thu">Thu</div>
+      <div class="col-header Fri">Fri</div>
+      <div class="col-header Sat">Sat</div>
+      <div class="col-header Sun">Sun</div>
+      <div class="row-header row-header-1">This Week</div>
+      <div class="row-header row-header-2">Last Week</div>
+      <!-- <div class="row-header row-header-3">2 Weeks Ago</div>
         <div class="row-header row-header-4">3 Weeks Ago</div> -->
-  
-        <base-pie
-          v-for="object in stepsMonthlyReport"
-          :key="object.dateTime"
-          :chartData="object.data"
-        ></base-pie>
-      </div>
+
+      <base-pie
+        v-for="object in stepsMonthlyReport"
+        :key="object.dateTime"
+        :chartData="object.data"
+      ></base-pie>
     </div>
-  
+  </div>
 </template>
 
 <script>
-import dummyData from './dummyData.js'
+import dummyData from "./dummyData.js";
 export default {
   data() {
     return {
@@ -37,11 +35,7 @@ export default {
 </script>
 
 <style scoped>
-.card {
-    padding: 
-    
-   
-}
+
 
 .calendar-grid {
   padding: 1rem 0.75rem;
@@ -52,7 +46,7 @@ export default {
     ". mon tue wed thu fri sat sun"
     "thisweek none none none none none none none"
     "lastweek none none none none none none none";
-    /* "wkprev2 none none none none none none none"
+  /* "wkprev2 none none none none none none none"
     "wkprev3 none none none none none none none"; */
 
   grid-gap: 1px 6px;
@@ -99,6 +93,4 @@ export default {
 .row-header.row-header-4 {
   grid-area: wkprev3;
 } */
-
-
 </style>

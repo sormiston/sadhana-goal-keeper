@@ -100,7 +100,7 @@ button {
   cursor: pointer;
 }
 p {
-  margin: 0 0 1rem;;
+  margin: 0;
 }
 .button--notDone {
   color: var(--red);

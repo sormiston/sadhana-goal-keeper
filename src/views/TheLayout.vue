@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main ref="main">
     <div class="top-bar">
       <div class="app-title">
         <span style="font-weight: bold">goalTracker</span><span>.app</span>
@@ -15,22 +15,22 @@
       </div>
     </div>
     <div id="mobileMenu" :class="{ hidden: !mobileMenuOpen }">
-      <router-link to="/goals" 
+      <router-link to="/goals"
         ><div class="menu-item">My Goals</div>
       </router-link>
-      <router-link to="/steps" 
+      <router-link to="/steps"
         ><div class="menu-item"><p>Today's Tasks</p></div>
       </router-link>
-      <router-link to="/dashboard" 
+      <router-link to="/dashboard"
         ><div class="menu-item"><p>Dashboard</p></div>
       </router-link>
-      <router-link to="/settings" 
+      <router-link to="/settings"
         ><div class="menu-item"><p>Settings</p></div>
       </router-link>
     </div>
     <nav-bar></nav-bar>
-    <section>
-      <router-view @pathComponentLoaded="pathComponentLoaded"/>
+    <section class="router-view" ref="section">
+      <router-view @pathComponentLoaded="pathComponentLoaded" />
     </section>
   </main>
 </template>
@@ -51,9 +51,12 @@ export default {
       this.mobileMenuOpen = !this.mobileMenuOpen;
     },
     pathComponentLoaded() {
-      this.mobileMenuOpen = false
+      this.mobileMenuOpen = false;
     }
-  }
+  },
+ 
+ 
+ 
 };
 </script>
 
@@ -65,12 +68,11 @@ main {
   right: 0;
   left: 0;
   background-color: var(--primary);
-  overflow: hidden;
+  overflow: auto;
 }
 
 section {
   background-color: var(--backdrop);
-  height: 100%;
   padding-top: 10px;
 }
 
@@ -86,7 +88,6 @@ section {
   z-index: 2;
   height: 38px;
   padding: 8px;
-
 }
 
 .btn-line {
@@ -168,8 +169,8 @@ section {
 }
 
 .menu-button :hover {
-    font-weight: bold;
-    font-size: 22px;
+  font-weight: bold;
+  font-size: 22px;
 }
 
 .top-bar div {

@@ -4,7 +4,7 @@
     <input
       v-model="input"
       @input="search"
-      @ref="searchInput"
+      ref="searchInput"
       class="search-text"
       placeholder="Search"
     />

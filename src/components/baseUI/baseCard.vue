@@ -6,11 +6,12 @@
           <h3>{{ title }}</h3>
         </header>
         <slot></slot>
-        <div v-if="$slots.icons" class="icons">
-          <slot name="icons"></slot>
-        </div>
+       
       </div>
       <div class="flex-bottom">
+         <div v-if="$slots.icons" class="icons">
+          <slot name="icons"></slot>
+        </div>
         <div v-if="$slots.progressBar" class="progress-bar">
           <slot name="progressBar"></slot>
         </div>
