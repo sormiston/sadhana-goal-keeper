@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <base-card :title="title">
+    <base-card :title="title" @click="doEvent">
       <template #default>
         <p>{{ description }}</p>
       </template>
@@ -80,6 +80,15 @@ export default {
         id: this.id
       });
       this.localStatus = true;
+    },
+    doEvent() { 
+      this.$emit('eventtriggered', {
+        title: this.title, 
+        description: this.description, 
+        hoursDuration: this.hoursDuration, 
+        minutesDuration: this.minutesDuration, 
+        durational: this.durational
+      }) 
     }
   }
 };
