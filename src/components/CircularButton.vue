@@ -21,6 +21,7 @@
 .circular-button:hover {
     background-color: var(--primary);
     color: white;
+    cursor: pointer;
 }
 </style>
 

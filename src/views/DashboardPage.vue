@@ -9,6 +9,9 @@
       </div>
     </div>
   </div>
+  <div class="cards">
+    <steps-by-category-card/>
+  </div>
 </template>
 
 <script>
@@ -32,6 +35,9 @@ export default {
   color: var(--primary);
   margin-bottom: 5px;
 }
+.cards {
+  margin: 0px 15px;
+}
 
 @media screen and (min-width: 767px) {
   .page-title {
@@ -39,5 +45,4 @@ export default {
   }
 }
 </style>
-
 

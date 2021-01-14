@@ -21,7 +21,8 @@
     </p>
     <p v-else>No scheduled goal steps under that criteria today.</p>
   </div>
-  <goal-card
+  <div class="goals">
+    <goal-card
     v-for="goal in filteredGoals"
     :key="goal.id"
     :title="goal.title"
@@ -40,11 +41,24 @@
     :cycleOnceMonthlyDay="goal.cycleOnceMonthlyDay"
   >
   </goal-card>
+  </div>
 </template>
 
 <style scoped>
 @media screen and (min-width: 767px) {
-  
+  .goals {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .goals {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* margin-right: 100px; */
+  }
 }
 </style>
 

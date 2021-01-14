@@ -12,7 +12,6 @@ createApp(App)
   .component('progress-bar', ProgressBar)
   .component('base-pill', BasePill)
   .component('base-pie', BasePie)
- 
   .use(store)
   .use(router)
   .mount("#app");
