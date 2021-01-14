@@ -24,12 +24,15 @@ export default {
     StepsDonePerDayPieCard,
     StepsByCategoryCard
   },
-   mounted() {
+  mounted() {
     this.$emit("pathComponentLoaded");
   }
 };
 </script>
 <style scoped>
+.container {
+  max-width: 700px;
+}
 .top-options {
   padding-left: 14px;
 }
