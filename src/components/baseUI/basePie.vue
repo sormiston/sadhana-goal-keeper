@@ -1,15 +1,18 @@
 <template>
-  <img v-if="freeDay" src="../../assets/bike.png" />
-  <Chart
-    v-else
-    type="pie"
-    :data="pooledData"
-    :options="options"
-    :width="width"
-    :height="height"
-    style="width: '50px'"
-    ref="chart"
-  />
+  <div v-if="freeDay" class="img-wrapper">
+    <img src="../../assets/bike.png" />
+  </div>
+  <div v-else>
+    <Chart
+      type="doughnut"
+      :data="pooledData"
+      :options="options"
+      :width="width"
+      :height="height"
+      ref="chart"
+    />
+    <span v-if="!numsGT9" class="readout">{{ chartData[0] }}/{{chartData[0] + chartData[1]}}</span>
+  </div>
 </template>
 
 <script>
@@ -23,8 +26,8 @@ export default {
   },
   data() {
     return {
-      width: 50,
-      height: 50,
+      width: 60,
+      height: 60,
       options: {
         responsive: false,
         animation: {
@@ -49,6 +52,9 @@ export default {
         ]
       };
     },
+    numsGT9() {
+      return this.chartData[0] > 9 || this.chartData[1] > 9
+    },
     freeDay() {
       return this.chartData.every((val) => val === 0);
     }
@@ -56,22 +62,36 @@ export default {
 
   components: {
     Chart
-  },
-  mounted() {
-    console.log(this.chartData[0]);
   }
 };
 </script>
 
 <style scoped>
+.img-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 img {
-  height: 50px;
-  width: 50px;
+  height: 42px;
+  width: 42px;
 }
 .p-chart {
   height: 60px;
   display: flex;
   justify-content: center;
+}
+.readout {
+  position: relative;
+  display: inline-block;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  font-weight: 700;
+  color: var(--jet);
+  
 }
 </style>
 
