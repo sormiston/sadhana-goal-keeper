@@ -3,7 +3,7 @@
 # MINTBEAN GOAL TRACKER HACKATHON
 
 ## Prototyping
-https://www.figma.com/file/CagjBx2DpD4xXivZsCNcPH/mintbean-goal-tracker?node-id=0%3A1
+https://www.figma.com/file/kLf25vZPchjEkqG6ixgnM8/mintbean-goal-tracker?node-id=0%3A1
     
 ## Data Models
 
