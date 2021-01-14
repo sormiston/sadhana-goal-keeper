@@ -95,6 +95,10 @@ export default {
 </script>
 
 <style scoped>
+.card {
+  padding: 0;
+  min-height: 106px;
+}
 button {
   height: 100%;
   background-color: rgba(216, 216, 216, 0.25);

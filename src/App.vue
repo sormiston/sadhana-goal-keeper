@@ -37,11 +37,13 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #000;
+  height: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  height: auto;
 }
 a {
   text-decoration: none;
@@ -65,13 +67,13 @@ p {
   margin: 4px auto;
 }
 
-#workspace {
+/* #workspace {
   position: relative;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-}
+} */
 
 .container {
   padding: 0 15px 12px;
@@ -92,6 +94,7 @@ p {
   display: flex;
   height: 100%;
   width: 100%;
+  padding: .25rem;
 }
 
 @media screen and (min-width: 767px) {

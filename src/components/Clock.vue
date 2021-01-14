@@ -2,7 +2,7 @@
     <div class="clock">
         <Knob 
             v-model="percentage" 
-            strokeWidth=1
+            :strokeWidth="strokeWidth"
             :valueTemplate="timer"
             valueColor="#18C2A3"
             rangeColor="#DADADA"
@@ -73,6 +73,9 @@ export default {
                 return (timeInSeconds % 60) / secondsInMinute * 100
             }
             return Math.min(timeInSeconds / totalTimeInSeconds * 100, 100);
+        },
+        strokeWidth() {
+          return 1
         }
     },
     methods:{

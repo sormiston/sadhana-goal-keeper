@@ -60,6 +60,7 @@ export default {
     return {
       goalsLoading: false,
       passFilter: "All"
+      
     };
   },
   computed: {
@@ -79,7 +80,6 @@ export default {
       this.goalsLoading = true;
       await this.$store.dispatch("goals/getUserGoals");
       this.goalsLoading = false;
-      console.log(this.$store.getters["goals/goals"][0]);
     },
     updateFilter(track) {
       console.log(this.searchFilteredGoals)
@@ -92,7 +92,7 @@ export default {
         const idx = this.passFilter.indexOf(track);
         this.passFilter.splice(idx, 1);
         if (this.passFilter.length === 0)
-          setTimeout(() => (this.passFilter = "All"), 750);
+          setTimeout(() => (this.passFilter = "All"), 1500);
       }
     }
   },
@@ -118,7 +118,6 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* margin-right: 100px; */
   }
 }
 </style>
