@@ -2,9 +2,6 @@
 
 # MINTBEAN GOAL TRACKER HACKATHON
 
-## Deployed at:
-https://sadhana-goal-keeper.firebaseapp.com/
-
 ## Prototyping
 https://www.figma.com/file/CagjBx2DpD4xXivZsCNcPH/mintbean-goal-tracker?node-id=0%3A1
     
@@ -42,13 +39,5 @@ https://www.figma.com/file/CagjBx2DpD4xXivZsCNcPH/mintbean-goal-tracker?node-id=
         * status: 
         * track: 
 
-      
-## UI (template)
-
-1. Routing + Screen Components
-  * /coaches                      -- coachesList
-  * /coaches/:id                  -- coachDetail
-  * /register                     -- coachRegistration
-  * /coaches/:id/contact          -- contactCoach
-  * /requests                     -- requestsReceieved
+ 
   
