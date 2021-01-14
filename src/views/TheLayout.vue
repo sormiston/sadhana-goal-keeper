@@ -53,10 +53,7 @@ export default {
     pathComponentLoaded() {
       this.mobileMenuOpen = false;
     }
-  },
- 
- 
- 
+  }
 };
 </script>
 
@@ -74,6 +71,7 @@ main {
 section {
   background-color: var(--backdrop);
   padding-top: 10px;
+  min-height: 100vh;
 }
 
 .app-title {
