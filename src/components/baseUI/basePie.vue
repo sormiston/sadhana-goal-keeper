@@ -11,7 +11,7 @@
       :height="height"
       ref="chart"
     />
-    <span class="readout">{{ chartData[0] }}/{{chartData[0] + chartData[1]}}</span>
+    <span v-if="!numsGT9" class="readout">{{ chartData[0] }}/{{chartData[0] + chartData[1]}}</span>
   </div>
 </template>
 
@@ -52,6 +52,9 @@ export default {
         ]
       };
     },
+    numsGT9() {
+      return this.chartData[0] > 9 || this.chartData[1] > 9
+    },
     freeDay() {
       return this.chartData.every((val) => val === 0);
     }
@@ -87,6 +90,7 @@ img {
   left: 50%;
   transform: translate(-50%, -25%);
   font-weight: 700;
+  color: var(--jet);
   
 }
 </style>

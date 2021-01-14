@@ -24,7 +24,11 @@ export default {
 </script>
 <style scoped>
 .container {
-  max-width: 700px;
+  max-width: 590px;
+}
+
+.container > * {
+  margin: 1rem 0;
 }
 .top-options {
   padding-left: 14px;

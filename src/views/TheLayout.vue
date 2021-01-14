@@ -65,7 +65,7 @@ main {
   right: 0;
   left: 0;
   background-color: var(--primary);
-  overflow: auto;
+  overflow-y: auto;
 }
 
 section {
