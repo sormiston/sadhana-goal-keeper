@@ -28,12 +28,6 @@ import dummyData from './dummyData.js'
 export default {
   data() {
     return {
-      // stepsMonthlyReport: [
-      //   {
-      //     dateTime: "a date",
-      //     data: [1, 2]
-      //   },
-      // ],
       stepsMonthlyReport: dummyData.stepsMonthlyReport
     };
   }
