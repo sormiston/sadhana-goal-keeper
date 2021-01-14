@@ -13,6 +13,7 @@
     :goalId="step.goalId"
     :description="step.description"
     :id="step.id"
+    @eventtriggered="doEvent"
   >
   </step-card>
 </template>
@@ -40,6 +41,9 @@ export default {
       await this.$store.dispatch("steps/getTodaysSteps");
       this.stepsLoading = false;
       console.log(this.steps[0]);
+    },
+    doEvent(value) { 
+      this.$emit('eventtriggered', value) 
     }
   },
   created() {

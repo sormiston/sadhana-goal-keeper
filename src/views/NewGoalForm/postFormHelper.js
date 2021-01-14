@@ -10,7 +10,7 @@ export default function postForm() {
       .clone()
       .minute(parseInt(this.form.startTime.substring(3, 5)));
   }
-  
+
   let formData = { ...this.form };
   formData.noTime =
     formData.startTime === null ? true : false;

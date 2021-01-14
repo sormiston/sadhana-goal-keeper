@@ -3,9 +3,15 @@
     <div class="page-title"><span>Today's Tasks</span></div>
     <div class="flex">
         <div class="index-container">
-            <steps-index></steps-index>
+            <steps-index @eventtriggered="performAction"></steps-index>
         </div>
-        <clock-card></clock-card>
+        <clock-card
+            :title="title"
+            :description="description"
+            :hoursDuration="hoursDuration"
+            :minutesDuration="minutesDuration"
+            :durational="durational"
+        ></clock-card>
     </div>
 </div>
 </template>
@@ -19,8 +25,28 @@ export default {
         StepsIndex,
         ClockCard
     },
+    data() {
+        return {
+            title: '',
+            description: '',
+            hoursDuration: '',
+            minutesDuration: '',
+            durational: false,
+        }
+    },
     mounted() {
         this.$emit("pathComponentLoaded");
+        this.$el.addEventListener("clicked", () => this.onClickChild)
+    },
+    methods: {
+        performAction(value) {
+            console.log(value)
+            this.title = value.title
+            this.description = value.description
+            this.hoursDuration = value.hoursDuration
+            this.minutesDuratio = value.minutesDuration
+            this.durational = value.durational
+        }
     }
 };
 </script>
