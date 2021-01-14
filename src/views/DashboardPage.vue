@@ -1,23 +1,16 @@
 <template>
-  <div class="container">
-    <div class="top-options">
-      <div class="page-title"><span>Dashboard</span></div>
-      <div class="cards">
-    <steps-by-category-card/>
-  </div>
-      <div class="flex">
-        <div class="done-per-day container">
-          <steps-done-per-day-pie-card></steps-done-per-day-pie-card>
-        </div>
-      </div>
+  <div class="top-options">
+    <div class="page-title"><span>Dashboard</span></div>
+    <div class="container">
+      <steps-by-category-card />
+      <steps-done-per-day-pie-card />
     </div>
   </div>
-  
 </template>
 
 <script>
 import StepsDonePerDayPieCard from "../components/dashboard/StepsDonePerDayPieCard.vue";
-import StepsByCategoryCard from '../components/dashboard/StepsByCategoryCard.vue'
+import StepsByCategoryCard from "../components/dashboard/StepsByCategoryCard.vue";
 export default {
   emits: ["pathComponentLoaded"],
   components: {

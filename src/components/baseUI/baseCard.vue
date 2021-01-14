@@ -61,5 +61,4 @@ h3 {
     font-size: 16px;
 }
 
-@media screen and (min-width: 767px) {}
 </style>

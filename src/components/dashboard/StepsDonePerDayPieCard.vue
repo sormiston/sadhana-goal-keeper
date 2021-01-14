@@ -11,8 +11,8 @@
       <div class="col-header Sun">Sun</div>
       <div class="row-header row-header-1">This Week</div>
       <div class="row-header row-header-2">Last Week</div>
-      <div class="row-header row-header-3">2 Weeks Ago</div>
-      <div class="row-header row-header-4">3 Weeks Ago</div>
+      <!-- <div class="row-header row-header-3">2 Weeks Ago</div>
+      <div class="row-header row-header-4">3 Weeks Ago</div> -->
 
       <base-pie
         v-for="object in stepsMonthlyReport"
@@ -43,9 +43,9 @@ export default {
   grid-template-areas:
     ". mon tue wed thu fri sat sun"
     "thisweek none none none none none none none"
-    "lastweek none none none none none none none"
-    "wkprev2 none none none none none none none"
-    "wkprev3 none none none none none none none";
+    "lastweek none none none none none none none";
+    /* "wkprev2 none none none none none none none"
+    "wkprev3 none none none none none none none"; */
 
   grid-gap: 1px 6px;
 }
@@ -85,10 +85,12 @@ export default {
 .row-header.row-header-2 {
   grid-area: lastweek;
 }
-.row-header.row-header-3 {
+/* .row-header.row-header-3 {
   grid-area: wkprev2;
 }
 .row-header.row-header-4 {
   grid-area: wkprev3;
-}
+} */
+
+
 </style>
