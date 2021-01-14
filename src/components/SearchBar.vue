@@ -5,6 +5,21 @@
   </div>
 </template>
 
+<script>
+import { Magnify } from "mdue";
+export default {
+  components: {
+    search: Magnify
+    // mdbIcon
+  },
+  methods: {
+    focusSearchInput() {
+      this.$refs.searchInput.focus();
+    }
+  }
+};
+</script>
+
 <style scoped>
 .search-bar {
   padding-top: 4px;
@@ -47,18 +62,3 @@ input:focus {
   }
 }
 </style>
-
-<script>
-import { Magnify } from "mdue";
-export default {
-  components: {
-    search: Magnify
-    // mdbIcon
-  },
-  methods: {
-    focusSearchInput() {
-      this.$refs.searchInput.focus();
-    }
-  }
-};
-</script>

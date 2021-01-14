@@ -11,6 +11,30 @@
 </div>
 </template>
 
+<script>
+import GoalsIndex from "../components/GoalsIndex.vue";
+import SearchBar from '../components/SearchBar.vue';
+import CreateGoalButton from "../components/CreateGoalButton.vue";
+export default {
+  emits: ['pathComponentLoaded'],
+ components: {
+        GoalsIndex,
+        SearchBar,
+        CreateGoalButton
+    },
+  computed: {
+    categories() {
+      return this.$store.getters.categories;
+    }
+  },
+  methods: {
+  },
+  mounted() {
+    this.$emit('pathComponentLoaded')
+  }
+};
+</script>
+
 <style scoped>
 .top-options {
     padding-left: 14px;
@@ -36,27 +60,4 @@
         justify-content: space-between;
     }
 }
-
 </style>
-
-<script>
-import GoalsIndex from "../components/GoalsIndex.vue";
-import SearchBar from '../components/SearchBar.vue';
-import CreateGoalButton from "../components/CreateGoalButton.vue";
-export default {
-  emits: ['pathComponentLoaded'],
- components: {
-        GoalsIndex,
-        SearchBar,
-        CreateGoalButton
-    },
-  computed: {
-    categories() {
-      return this.$store.getters.categories;
-    }
-  },
-  mounted() {
-    this.$emit('pathComponentLoaded')
-  }
-};
-</script>

@@ -55,7 +55,8 @@ export default {
     },
     props: [
         "timer",
-        "duration"
+        "duration",
+        "durational"
     ],
     components: {
         Knob,
@@ -68,6 +69,9 @@ export default {
             let minutes = parseInt(this.timer.substring(0,2));
             let seconds = parseInt(this.timer.substring(3));
             let timeInSeconds = seconds + minutes * secondsInMinute;
+            if (!this.durational) {
+                return (timeInSeconds % 60) / secondsInMinute * 100
+            }
             return Math.min(timeInSeconds / totalTimeInSeconds * 100, 100);
         }
     },

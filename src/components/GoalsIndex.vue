@@ -44,24 +44,6 @@
   </div>
 </template>
 
-<style scoped>
-@media screen and (min-width: 767px) {
-  .goals {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-}
-@media screen and (min-width: 1000px) {
-  .goals {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    /* margin-right: 100px; */
-  }
-}
-</style>
-
 <script>
 import GoalCard from "./GoalCard.vue";
 import BasePill from "../components/baseUI/basePill.vue";
@@ -84,7 +66,6 @@ export default {
       // filter logic TODO - return all for now
       const goals = this.$store.getters["goals/goals"];
       if (this.passFilter === "All") return goals;
-
       return goals.filter((goal) => this.passFilter.includes(goal.track));
     }
   },
@@ -107,7 +88,6 @@ export default {
         if (this.passFilter.length === 0)
           setTimeout(() => (this.passFilter = "All"), 750);
       }
-    
     }
   },
   created() {
@@ -119,5 +99,20 @@ export default {
 <style scoped>
 .md-inline-flex {
   justify-content: flex-start;
+}
+@media screen and (min-width: 767px) {
+  .goals {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .goals {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* margin-right: 100px; */
+  }
 }
 </style>
