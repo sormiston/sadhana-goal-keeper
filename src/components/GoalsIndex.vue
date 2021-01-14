@@ -110,14 +110,12 @@ export default {
   .goals {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
   }
 }
 @media screen and (min-width: 1000px) {
   .goals {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
   }
 }
 </style>

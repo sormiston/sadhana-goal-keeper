@@ -59,7 +59,7 @@
 
 @media screen and (min-width: 767px) {
   .goal-card {
-    width: 48%;
+    width: 47%;
     margin: 8px;
   }
 }
@@ -73,7 +73,7 @@
       display: block;
   }
   .goal-card {
-    width: 32%;
+    width: 31%;
     margin: 8px;
   }
 }
