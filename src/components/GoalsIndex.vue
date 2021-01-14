@@ -49,15 +49,20 @@
   .goals {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+  }
+  
+  .goals > * {
+    margin: 0 1rem 1rem;
   }
 }
 @media screen and (min-width: 1000px) {
   .goals {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     /* margin-right: 100px; */
+  }
+    .goals > * {
+    margin: 0 1rem 1rem;
   }
 }
 </style>
@@ -74,6 +79,7 @@ export default {
     return {
       goalsLoading: false,
       passFilter: "All"
+      
     };
   },
   computed: {
@@ -81,7 +87,7 @@ export default {
       return this.$store.getters.tracks;
     },
     filteredGoals() {
-      // filter logic TODO - return all for now
+    
       const goals = this.$store.getters["goals/goals"];
       if (this.passFilter === "All") return goals;
 
