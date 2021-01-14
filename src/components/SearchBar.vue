@@ -1,22 +1,37 @@
 <template>
   <div class="search-bar">
     <span @click="focusSearchInput" class="icon"><search></search></span>
-    <input ref="searchInput" class="search-text" placeholder="Search" />
+    <input @input="onUpdate" v-model="inputText" ref="searchInput" class="search-text" placeholder="Search" />
   </div>
 </template>
 
 <script>
 import { Magnify } from "mdue";
 export default {
+  data() {
+    return {
+      inputText: ""
+    }
+  },
   components: {
     search: Magnify
-    // mdbIcon
   },
   methods: {
     focusSearchInput() {
       this.$refs.searchInput.focus();
+    },
+    onUpdate() {
+      const goals = this.$store.getters["goals/goals"];
+      if (this.inputText === "") {
+        this.$emit('searchChange', goals)
+      } else {
+        this.$emit('searchChange', goals.filter((goal) => 
+          goal.title.toLowerCase().includes(this.inputText.toLowerCase()) ||
+          goal.description.toLowerCase().includes(this.inputText.toLowerCase())
+        ))
+      }
     }
-  }
+  },
 };
 </script>
 

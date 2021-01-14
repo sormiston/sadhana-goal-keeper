@@ -52,6 +52,9 @@ export default {
     GoalCard,
     BasePill
   },
+  props: [
+    "searchFilteredGoals"
+  ],
   data() {
     return {
       goalsLoading: false,
@@ -64,7 +67,7 @@ export default {
     },
     filteredGoals() {
       // filter logic TODO - return all for now
-      const goals = this.$store.getters["goals/goals"];
+      const goals = this.searchFilteredGoals
       if (this.passFilter === "All") return goals;
       return goals.filter((goal) => this.passFilter.includes(goal.track));
     }
@@ -77,6 +80,7 @@ export default {
       console.log(this.$store.getters["goals/goals"][0]);
     },
     updateFilter(track) {
+      console.log(this.searchFilteredGoals)
       if (track === "All") this.passFilter = "All";
       else if (this.passFilter === "All") {
         this.passFilter = [track];

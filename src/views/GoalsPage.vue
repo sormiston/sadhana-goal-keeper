@@ -3,11 +3,11 @@
     <div class="desktop-row">
         <div class="page-title"><span>My goals</span></div>
         <div class="search-create-row">
-            <search-bar />
+            <search-bar @searchChange="searchFilterChange" />
             <create-goal-button />
         </div>
     </div>
-    <goals-index></goals-index>
+    <goals-index :searchFilteredGoals="searchFilteredGoals"></goals-index>
 </div>
 </template>
 
@@ -16,22 +16,31 @@ import GoalsIndex from "../components/GoalsIndex.vue";
 import SearchBar from '../components/SearchBar.vue';
 import CreateGoalButton from "../components/CreateGoalButton.vue";
 export default {
-  emits: ['pathComponentLoaded'],
- components: {
+    emits: ['pathComponentLoaded'],
+    components: {
         GoalsIndex,
         SearchBar,
         CreateGoalButton
     },
-  computed: {
-    categories() {
-      return this.$store.getters.categories;
+    data() {
+        return {
+            searchFilteredGoals: this.$store.getters["goals/goals"],
+        }
+    },
+    computed: {
+        categories() {
+            return this.$store.getters.categories;
+        },
+    },
+    methods: {
+        searchFilterChange(value) {
+            this.searchFilteredGoals = value
+        }
+    },
+    mounted() {
+        this.$emit('pathComponentLoaded')
+        this.searchFilteredGoals = this.$store.getters["goals/goals"]
     }
-  },
-  methods: {
-  },
-  mounted() {
-    this.$emit('pathComponentLoaded')
-  }
 };
 </script>
 
@@ -55,6 +64,7 @@ export default {
     .page-title {
         font-size: 26px;
     }
+
     .desktop-row {
         display: flex;
         justify-content: space-between;
