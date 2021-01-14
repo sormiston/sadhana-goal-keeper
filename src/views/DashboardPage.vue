@@ -1,12 +1,31 @@
 <template>
-  <div class="top-options">
-    <div class="page-title"><span>Dashboard</span></div>
+  <div class="container">
+    <div class="top-options">
+      <div class="page-title"><span>Dashboard</span></div>
+      <div class="flex">
+        <div class="done-per-day container">
+          <steps-done-per-day-pie-card></steps-done-per-day-pie-card>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="cards">
     <steps-by-category-card/>
   </div>
 </template>
 
+<script>
+import StepsDonePerDayPieCard from "../components/dashboard/StepsDonePerDayPieCard.vue";
+export default {
+  emits: ["pathComponentLoaded"],
+  components: {
+    StepsDonePerDayPieCard
+  },
+   mounted() {
+    this.$emit("pathComponentLoaded");
+  }
+};
+</script>
 <style scoped>
 .top-options {
   padding-left: 14px;
@@ -27,15 +46,3 @@
 }
 </style>
 
-<script>
-import StepsByCategoryCard from '../components/StepsByCategoryCard.vue';
-export default {
-  emits: ["pathComponentLoaded"],
-  components: {
-    StepsByCategoryCard
-  },
-  mounted() {
-    this.$emit("pathComponentLoaded");
-  }
-};
-</script>
